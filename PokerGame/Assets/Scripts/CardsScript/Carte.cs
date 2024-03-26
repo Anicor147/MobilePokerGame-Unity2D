@@ -82,7 +82,8 @@ public class Carte : MonoBehaviour, IPointerDownHandler
         enseigneText.color = color;
         valeurText.color = color;
         
-        valeurText.text = carteData.valeur.ToString();
+        //valeurText.text = carteData.valeur.ToString();
+        valeurText.text = valeurString;
     }
 
 
