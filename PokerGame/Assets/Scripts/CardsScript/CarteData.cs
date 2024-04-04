@@ -7,6 +7,7 @@ public class CarteData : IComparable<CarteData>
 {
     public int valeur;
     public Enseigne enseigne;
+    public Color color;
 
     public CarteData(int valeur, Enseigne enseigne)
     {

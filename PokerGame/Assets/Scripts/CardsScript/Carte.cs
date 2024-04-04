@@ -1,7 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 
 public enum Enseigne
 {
@@ -17,8 +17,10 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     [SerializeField] private TMP_Text enseigneText;
     [SerializeField] private TMP_Text heldText;
     private bool isHeld;
-    
-    public CarteData Data { get;  private set; }
+
+    private Color color; 
+    public CarteData Data { get; private set; }
+
     public bool IsHeld
     {
         get => isHeld;
@@ -32,9 +34,8 @@ public class Carte : MonoBehaviour, IPointerDownHandler
 
     internal void SetData(CarteData carteData)
     {
+        Data = carteData;
 
-        Data = carteData; 
-        
         string valeurString = carteData.valeur.ToString();
 
         switch (carteData.valeur)
@@ -53,35 +54,38 @@ public class Carte : MonoBehaviour, IPointerDownHandler
                 break;
         }
 
-        Color color = Color.red;
 
         switch (carteData.enseigne)
         {
             case Enseigne.Coeur:
 
                 color = Color.red;
+                carteData.color = color;
                 enseigneText.text = "\u2665";
                 break;
 
             case Enseigne.Pique:
                 color = Color.black;
+                carteData.color = color;
                 enseigneText.text = "\u2660";
                 break;
 
             case Enseigne.Carreau:
                 color = Color.red;
+                carteData.color = color;
                 enseigneText.text = "\u2666";
                 break;
-            
+
             case Enseigne.Trefle:
                 color = Color.black;
+                carteData.color = color;
                 enseigneText.text = "\u2663";
                 break;
         }
 
         enseigneText.color = color;
         valeurText.color = color;
-        
+
         //valeurText.text = carteData.valeur.ToString();
         valeurText.text = valeurString;
     }
