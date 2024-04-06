@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Carte[] main = new Carte[5];
-    private List<CarteData> deck = new List<CarteData>(52);
-    private int indexCarte = 0;
-    [SerializeField] private TMP_Text comboText;
+    [FormerlySerializedAs("main")] [SerializeField] private Carte[] _main = new Carte[5];
+    [FormerlySerializedAs("enemyMain")] [SerializeField] private Carte[] _enemyMain = new Carte[5];
+    private List<CarteData> _deck = new List<CarteData>(52);
+    private int _indexCarte = 0;
+    private int _playerHandValue = 0;
+    private int _enemyHandValue = 0;
+    [FormerlySerializedAs("playerComboText")] [FormerlySerializedAs("comboText")] [SerializeField] private TMP_Text _playerComboText;
+    [FormerlySerializedAs("enemyComboText")] [SerializeField] private TMP_Text _enemyComboText;
 
     void Start()
     {
@@ -17,47 +22,47 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 1; j < 13; j++)
             {
-                deck.Add(new CarteData(j, (Enseigne)i));
+                _deck.Add(new CarteData(j, (Enseigne)i));
             }
         }
 
         Shuffle();
-     //   Piger();
+        //  Piger();
     }
 
     public void Shuffle()
     {
         var temp = new List<CarteData>();
 
-        while (deck.Count > 0)
+        while (_deck.Count > 0)
         {
-            int indexRandom = Random.Range(0, deck.Count);
-            temp.Add(deck[indexRandom]);
-            deck.RemoveAt(indexRandom);
+            int indexRandom = Random.Range(0, _deck.Count);
+            temp.Add(_deck[indexRandom]);
+            _deck.RemoveAt(indexRandom);
         }
 
-        deck = temp;
+        _deck = temp;
     }
 
     public void Piger()
     {
         for (int i = 0; i < 5; i++)
         {
-            if (main[i].IsHeld)
+            if (_main[i].IsHeld)
             {
                 continue;
             }
 
-            main[i].SetData(deck[indexCarte++]);
+            _main[i].SetData(_deck[_indexCarte++]);
 
-            if (indexCarte >= deck.Count)
+            if (_indexCarte >= _deck.Count)
             {
-                indexCarte = 0;
+                _indexCarte = 0;
                 Shuffle();
             }
         }
 
-        foreach (var mainCarte in main)
+        foreach (var mainCarte in _main)
         {
             if (mainCarte.IsHeld)
             {
@@ -65,20 +70,33 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CheckCombo();
+        CheckCombo(ref _main , _playerComboText);
+
+        //Shuffle();
+        for (int i = 0; i < 5; i++)
+        {
+            _enemyMain[i].SetData(_deck[_indexCarte++]);
+            if (_indexCarte >= _deck.Count)
+            {
+                _indexCarte = 0;
+                Shuffle();
+            }
+        }
+
+        CheckCombo(ref _enemyMain, _enemyComboText);
     }
 
 
-    private void CheckCombo()
+    private void CheckCombo(ref Carte[] gameDeck , TMP_Text comboText)
     {
-        List<CarteData> handData = main.Select(x => x.Data).ToList();
+        List<CarteData> handData = gameDeck.Select(x => x.Data).ToList();
         handData.Sort();
-
         //Royal Flush
 
         if (IsRoyalFlush(handData))
         {
             comboText.text = "Royal Flush";
+            
             return;
         }
 
@@ -111,41 +129,52 @@ public class GameManager : MonoBehaviour
         //Full
         if (IsFullHouse(handData))
         {
-            comboText.text = "Full";
+        comboText.text = "Full";
             return;
         }
 
         //Color
         if (IsColor(handData))
         {
-            comboText.text = "Color";
+        comboText.text = "Color";
             return;
         }
-         
+
         // Three of a kind
         if (IsThreeOfAKind(handData))
         {
-            comboText.text = "Three Of A Kind";
+        comboText.text = "Three Of A Kind";
             return;
         }
 
         // Two pair
         if (IsTwoPair(handData))
         {
-            comboText.text = "Two Pair";
+        comboText.text = "Two Pair";
             return;
         }
 
         // One Pair
         if (IsOnePair(handData))
         {
-            comboText.text = "One Pair";
+         comboText.text = "One Pair";
             return;
         }
 
-        comboText.text = "High CARD";
+        comboText.text = "High Card";
+        
+        
+        
+        
+        
+        
+        
     }
 
+    
+    
+    
+    
     private bool IsFullHouse(List<CarteData> handData)
     {
         return (handData[0].valeur == handData[1].valeur && handData[2].valeur == handData[3].valeur &&
