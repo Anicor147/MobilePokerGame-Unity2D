@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         }
 
         Shuffle();
-        Piger();
+     //   Piger();
     }
 
     public void Shuffle()

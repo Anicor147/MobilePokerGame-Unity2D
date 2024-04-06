@@ -1,7 +1,9 @@
 using System;
+using SOScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public enum Enseigne
 {
@@ -16,9 +18,10 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     [SerializeField] private TMP_Text valeurText;
     [SerializeField] private TMP_Text enseigneText;
     [SerializeField] private TMP_Text heldText;
+    [SerializeField] private CardsSO _cardsSo;
+    [SerializeField] private Image cardImage;
     private bool isHeld;
-
-    private Color color; 
+    private Color color;
     public CarteData Data { get; private set; }
 
     public bool IsHeld
@@ -36,7 +39,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     {
         Data = carteData;
 
-        string valeurString = carteData.valeur.ToString();
+        /*string valeurString = carteData.valeur.ToString();
 
         switch (carteData.valeur)
         {
@@ -52,7 +55,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
             case 13:
                 valeurString = "K";
                 break;
-        }
+        }*/
 
 
         switch (carteData.enseigne)
@@ -60,26 +63,31 @@ public class Carte : MonoBehaviour, IPointerDownHandler
             case Enseigne.Coeur:
 
                 color = Color.red;
+                cardImage.sprite = _cardsSo.spritesHearth[carteData.valeur - 1];
                 carteData.color = color;
-                enseigneText.text = "\u2665";
+           //     enseigneText.text = "\u2665";
                 break;
 
             case Enseigne.Pique:
                 color = Color.black;
+
+                cardImage.sprite = _cardsSo.spritesSpade[carteData.valeur - 1];
                 carteData.color = color;
-                enseigneText.text = "\u2660";
+              //  enseigneText.text = "\u2660";
                 break;
 
             case Enseigne.Carreau:
                 color = Color.red;
+                cardImage.sprite = _cardsSo.spritesDiamond[carteData.valeur - 1];
                 carteData.color = color;
-                enseigneText.text = "\u2666";
+             //   enseigneText.text = "\u2666";
                 break;
 
             case Enseigne.Trefle:
+                cardImage.sprite = _cardsSo.spritesClover[carteData.valeur - 1];
                 color = Color.black;
                 carteData.color = color;
-                enseigneText.text = "\u2663";
+             //   enseigneText.text = "\u2663";
                 break;
         }
 
@@ -87,7 +95,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
         valeurText.color = color;
 
         //valeurText.text = carteData.valeur.ToString();
-        valeurText.text = valeurString;
+        //valeurText.text = valeurString;
     }
 
 

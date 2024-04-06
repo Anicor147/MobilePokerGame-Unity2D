@@ -1,5 +1,10 @@
 
-vcsharpsquid:S3903"'Move 'Enseigne' into a named namespace.(ğÄüøüÿÿÿÿ8øøù”æ1J$514b0aff-328a-4a24-aa19-9ef891a19641
-scsharpsquid:S3903"$Move 'Carte' into a named namespace.(à‚€½ûÿÿÿÿ8ÓßËÖç1J$395eef2d-4e88-468c-a587-1d32f97b8ee2
-“csharpsquid:S2292"DMake this an auto-implemented property and remove its backing field.(«ší¼úÿÿÿÿ8øøù”æ1J$19dc9e79-202b-4163-9430-85ad03f3083c
-hcsharpsquid:S125Y"Remove this commented out code.(¡Èæ¹8Õƒ´ç1J$1c42295b-8246-405f-ac77-01606afe2cac
+vcsharpsquid:S3903"'Move 'Enseigne' into a named namespace.(ğÄüøüÿÿÿÿ8øøù”æ1J$f7d6caeb-3d1c-4b0a-83ab-ff402327e58f
+scsharpsquid:S3903"$Move 'Carte' into a named namespace.(à‚€½ûÿÿÿÿ8ÓßËÖç1J$fa70df42-c24f-4f7f-a458-7922dca417cd
+“csharpsquid:S2292"DMake this an auto-implemented property and remove its backing field.(«ší¼úÿÿÿÿ8øøù”æ1J$8393f113-a43c-4f3f-87ea-830a017183b5
+mcsharpsquid:S125*"Remove this commented out code.(–ººËüÿÿÿÿ8„–—şê1J$cb8b8294-a9ad-4995-9592-548e40657792
+mcsharpsquid:S125D"Remove this commented out code.(ÔàËùÿÿÿÿ8åŠıê1J$b079826d-5c14-4d29-ad62-d4e17f5b9a18
+gcsharpsquid:S125L"Remove this commented out code.(òÇ]8İ¨ıê1J$6dbc8873-33ac-416c-9ef2-5fce2ba227d0
+mcsharpsquid:S125S"Remove this commented out code.(Ñ´şÈıÿÿÿÿ8ÙÙıê1J$b71983de-0c2e-4101-aa64-035ce2bb8cc4
+mcsharpsquid:S125Z"Remove this commented out code.(Ò½ç†üÿÿÿÿ8ÙÙıê1J$89f1248a-4484-4d3b-aca5-562a4b21d11f
+hcsharpsquid:S125a"Remove this commented out code.(¡Èæ¹8Õƒ´ç1J$1556f832-0a57-4a7a-ad6b-24869b1122f4
