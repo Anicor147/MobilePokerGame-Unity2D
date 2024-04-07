@@ -1,2 +1,6 @@
 
-mcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõJ$a589b6a6-f7d7-4c25-b588-d579a092c735
+mcsharpsquid:S3903	"*Move 'GameManager' into a named namespace.(¬øõJ$3355d887-10aa-4b16-9cdb-57f59228c8eb
+mcsharpsquid:S2933"#Make '_playerHandValue' 'readonly'.(ğ¨ÊË8Ü›£®ë1J$8d5020cd-1054-42ab-ae6a-421300e46038
+lcsharpsquid:S2933""Make '_enemyHandValue' 'readonly'.(§¯§8Çğ•®ë1J$725a48ab-1cd9-420c-b78d-e298b7554675
+hcsharpsquid:S125"Remove this commented out code.(İ¢Şà8…ú¡®ë1J$1091072c-553a-4fbd-89c2-db3fd812d9da
+mcsharpsquid:S125L"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8†ú¡®ë1J$ab8a8748-6de9-48ce-a919-11a02b9d1c46

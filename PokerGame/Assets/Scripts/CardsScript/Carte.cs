@@ -24,6 +24,12 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     private Color color;
     public CarteData Data { get; private set; }
 
+    public CardsSO CardsSo
+    {
+        get => _cardsSo;
+        set => _cardsSo = value;
+    }
+    
     public bool IsHeld
     {
         get => isHeld;
@@ -38,26 +44,6 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     internal void SetData(CarteData carteData)
     {
         Data = carteData;
-
-        /*string valeurString = carteData.valeur.ToString();
-
-        switch (carteData.valeur)
-        {
-            case 1:
-                valeurString = "A";
-                break;
-            case 11:
-                valeurString = "J";
-                break;
-            case 12:
-                valeurString = "Q";
-                break;
-            case 13:
-                valeurString = "K";
-                break;
-        }*/
-
-
         switch (carteData.enseigne)
         {
             case Enseigne.Coeur:
@@ -65,7 +51,6 @@ public class Carte : MonoBehaviour, IPointerDownHandler
                 color = Color.red;
                 cardImage.sprite = _cardsSo.spritesHearth[carteData.valeur - 1];
                 carteData.color = color;
-           //     enseigneText.text = "\u2665";
                 break;
 
             case Enseigne.Pique:
@@ -73,29 +58,23 @@ public class Carte : MonoBehaviour, IPointerDownHandler
 
                 cardImage.sprite = _cardsSo.spritesSpade[carteData.valeur - 1];
                 carteData.color = color;
-              //  enseigneText.text = "\u2660";
                 break;
 
             case Enseigne.Carreau:
                 color = Color.red;
                 cardImage.sprite = _cardsSo.spritesDiamond[carteData.valeur - 1];
                 carteData.color = color;
-             //   enseigneText.text = "\u2666";
                 break;
 
             case Enseigne.Trefle:
                 cardImage.sprite = _cardsSo.spritesClover[carteData.valeur - 1];
                 color = Color.black;
                 carteData.color = color;
-             //   enseigneText.text = "\u2663";
                 break;
         }
 
         enseigneText.color = color;
         valeurText.color = color;
-
-        //valeurText.text = carteData.valeur.ToString();
-        //valeurText.text = valeurString;
     }
 
 
