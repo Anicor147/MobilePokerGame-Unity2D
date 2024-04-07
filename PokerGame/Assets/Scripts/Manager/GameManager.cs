@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Carte[] _enemyMain = new Carte[5];
     [SerializeField] private TMP_Text _playerComboText;
     [SerializeField] private TMP_Text _enemyComboText;
+    [SerializeField] private TMP_Text _winnerBox;
     private List<CarteData> _deck = new List<CarteData>(52);
     private int _playerHandValue = 0;
     private int _indexCarte = 0;
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void Piger()
     {
+        _enemyHandValue = 0;
+        _playerHandValue = 0;
         for (int i = 0; i < 5; i++)
         {
             if (_main[i].IsHeld)
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CheckCombo(ref _main, _playerComboText);
+        CheckCombo(ref _main, _playerComboText, ref _playerHandValue);
 
         //Shuffle();
         for (int i = 0; i < 5; i++)
@@ -84,11 +87,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CheckCombo(ref _enemyMain, _enemyComboText);
+        CheckCombo(ref _enemyMain, _enemyComboText, ref _enemyHandValue);
     }
 
 
-    private void CheckCombo(ref Carte[] gameDeck, TMP_Text comboText)
+    private void CheckCombo(ref Carte[] gameDeck, TMP_Text comboText, ref int value)
     {
         List<CarteData> handData = gameDeck.Select(x => x.Data).ToList();
         handData.Sort();
@@ -97,7 +100,7 @@ public class GameManager : MonoBehaviour
         if (IsRoyalFlush(handData))
         {
             comboText.text = "Royal Flush";
-
+            value = 10;
             return;
         }
 
@@ -105,18 +108,21 @@ public class GameManager : MonoBehaviour
         if (IsFlush(handData))
         {
             comboText.text = "Flush";
+            value = 9;
             return;
         }
 
         if (IsStraightFlush(handData))
         {
             comboText.text = "Straight Flush";
+            value = 8;
             return;
         }
 
         if (IsStraight(handData))
         {
             comboText.text = "Straight";
+            value = 7;
             return;
         }
 
@@ -124,6 +130,7 @@ public class GameManager : MonoBehaviour
         if (IsFourOfAKind(handData))
         {
             comboText.text = "Four Of A Kind";
+            value = 6;
             return;
         }
 
@@ -131,6 +138,7 @@ public class GameManager : MonoBehaviour
         if (IsFullHouse(handData))
         {
             comboText.text = "Full";
+            value = 5;
             return;
         }
 
@@ -138,6 +146,7 @@ public class GameManager : MonoBehaviour
         if (IsColor(handData))
         {
             comboText.text = "Color";
+            value = 4;
             return;
         }
 
@@ -146,12 +155,14 @@ public class GameManager : MonoBehaviour
         {
             comboText.text = "Three Of A Kind";
             return;
+            value = 3;
         }
 
         // Two pair
         if (IsTwoPair(handData))
         {
             comboText.text = "Two Pair";
+            value = 2;
             return;
         }
 
@@ -159,12 +170,41 @@ public class GameManager : MonoBehaviour
         if (IsOnePair(handData))
         {
             comboText.text = "One Pair";
+            value = 1;
             return;
         }
 
-        comboText.text = "High Card";
+        if (!IsOnePair(handData) && !IsTwoPair(handData) && !IsThreeOfAKind(handData) && !IsFourOfAKind(handData) &&
+            !IsColor(handData) &&
+            !IsStraight(handData) && !IsFlush(handData) && !IsFullHouse(handData) && !IsRoyalFlush(handData) &&
+            !IsStraightFlush(handData))
+        {
+            comboText.text = "High Card";
+            value = 0;
+        }
+
+
+        CheckComboValue();
     }
 
+    private void CheckComboValue()
+    {
+        Debug.Log($"player :" + _playerHandValue);
+        Debug.Log("enemy = " + _enemyHandValue);
+        
+        if (_playerHandValue > _enemyHandValue)
+        {
+            _winnerBox.text = "Player Win !";
+        }
+        else if (_playerHandValue == _enemyHandValue)
+        {
+            _winnerBox.text = "Draw !";
+        }
+        else
+        {
+            _winnerBox.text = "Enemy Win !";
+        }
+    }
 
     private bool IsFullHouse(List<CarteData> handData)
     {
