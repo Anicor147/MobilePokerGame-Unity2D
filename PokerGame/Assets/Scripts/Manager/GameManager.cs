@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         }
 
         CheckCombo(ref _enemyMain, _enemyComboText, ref _enemyHandValue);
+        CheckComboValue();
     }
 
 
@@ -104,25 +105,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        //Flush
-        if (IsFlush(handData))
-        {
-            comboText.text = "Flush";
-            value = 9;
-            return;
-        }
-
         if (IsStraightFlush(handData))
         {
             comboText.text = "Straight Flush";
-            value = 8;
-            return;
-        }
-
-        if (IsStraight(handData))
-        {
-            comboText.text = "Straight";
-            value = 7;
+            value = 9;
             return;
         }
 
@@ -130,22 +116,30 @@ public class GameManager : MonoBehaviour
         if (IsFourOfAKind(handData))
         {
             comboText.text = "Four Of A Kind";
-            value = 6;
+            value = 7;
             return;
         }
 
         //Full
         if (IsFullHouse(handData))
         {
-            comboText.text = "Full";
+            comboText.text = "Full House";
+            value = 6;
+            return;
+        }
+        //Flush
+
+        if (IsFlush(handData))
+        {
+            comboText.text = "Flush";
             value = 5;
             return;
         }
 
-        //Color
-        if (IsColor(handData))
+
+        if (IsStraight(handData))
         {
-            comboText.text = "Color";
+            comboText.text = "Straight";
             value = 4;
             return;
         }
@@ -154,9 +148,10 @@ public class GameManager : MonoBehaviour
         if (IsThreeOfAKind(handData))
         {
             comboText.text = "Three Of A Kind";
-            return;
             value = 3;
+            return;
         }
+
 
         // Two pair
         if (IsTwoPair(handData))
@@ -182,16 +177,13 @@ public class GameManager : MonoBehaviour
             comboText.text = "High Card";
             value = 0;
         }
-
-
-        CheckComboValue();
     }
 
     private void CheckComboValue()
     {
         Debug.Log($"player :" + _playerHandValue);
         Debug.Log("enemy = " + _enemyHandValue);
-        
+
         if (_playerHandValue > _enemyHandValue)
         {
             _winnerBox.text = "Player Win !";
