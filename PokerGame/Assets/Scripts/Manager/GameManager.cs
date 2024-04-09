@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         }
 
         CheckCombo(ref _enemyMain, _enemyComboText, ref _enemyHandValue);
-        CheckComboValue();
+        CheckComboValue(ref _playerHandValue , ref _enemyHandValue);
     }
 
 
@@ -197,12 +197,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void CheckComboValue()
+    private void CheckComboValue(ref int playerValue , ref int  enemyValue)
     {
         if (_playerHandValue > _enemyHandValue)
         {
             _winnerBox.text = "Player Win !";
-            _playerScore++;
+            _playerScore += playerValue;
             _pScoreText.text = _playerScore.ToString();
         }
         else if (_playerHandValue == _enemyHandValue)
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _winnerBox.text = "Enemy Win !";
-            _enemyScore++;
+            _enemyScore += enemyValue;
             _eScoreText.text = _enemyScore.ToString();
         }
        
