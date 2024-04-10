@@ -9,3 +9,5 @@ U
 %Assets/Scripts/Manager/GameManager.cs,2\b\2bb35a01a4e7368707b6728c72efc867a4297f14
 S
 #Assets/Scripts/SOScripts/CardsSO.cs,3\7\3700f3725907897be565c59e3157cf136743b8f1
+Z
+*Assets/Scripts/MainMenu/MainMenuManager.cs,c\7\c7131dbac1b5d0eaaeedfb4a8c25cbcbd9a759cb
