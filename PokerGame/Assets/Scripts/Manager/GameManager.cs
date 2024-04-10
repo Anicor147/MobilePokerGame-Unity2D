@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SOScripts;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,8 +19,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _winnerBox;
     [SerializeField] private TMP_Text _pScoreText;
     [SerializeField] private TMP_Text _eScoreText;
-    [FormerlySerializedAs("_roundValue")] [SerializeField] private TMP_Text _roundValueText;
+
+    [FormerlySerializedAs("_roundValue")] [SerializeField]
+    private TMP_Text _roundValueText;
+
     [SerializeField] private TMP_Text _roundText;
+    [SerializeField] private Canvas _winScreen;
+    [SerializeField] private TMP_Text _winnerText;
 
     private List<CarteData> _deck = new List<CarteData>(52);
     private int _playerHandValue = 0;
@@ -25,6 +34,11 @@ public class GameManager : MonoBehaviour
     private int _playerScore = 0;
     private int _enemyScore = 0;
     private int round = 1;
+
+    private void Awake()
+    {
+        _winScreen.enabled = false;
+    }
 
     void Start()
     {
@@ -36,7 +50,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        HideText();   
+        HideText();
         Shuffle();
         //  Piger();
     }
@@ -106,7 +120,7 @@ public class GameManager : MonoBehaviour
         }
 
         CheckCombo(ref _enemyMain, _enemyComboText, ref _enemyHandValue);
-        CheckComboValue(ref _playerHandValue , ref _enemyHandValue);
+        CheckComboValue(ref _playerHandValue, ref _enemyHandValue);
     }
 
 
@@ -197,7 +211,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void CheckComboValue(ref int playerValue , ref int  enemyValue)
+    private void CheckComboValue(ref int playerValue, ref int enemyValue)
     {
         if (_playerHandValue > _enemyHandValue)
         {
@@ -215,29 +229,41 @@ public class GameManager : MonoBehaviour
             _enemyScore += enemyValue;
             _eScoreText.text = _enemyScore.ToString();
         }
-       
+
         _roundText.text = "Round : ";
         _roundValueText.text = $"{round.ToString()}/10";
+        if (round >= 10)
+        {
+            CheckWinner();
+            return;
+        }
+
         round++;
     }
 
     private void CheckWinner()
     {
         //TODO Canvas de fin de la partie qui indique le gagnant
-        if (round >= 10)
+
+        _winScreen.enabled = true;
+        if (_playerScore > _enemyScore)
         {
-            if (_playerScore > _enemyScore)
-            {
-                // Player Won
-            }
-            else
-            {
-                // Player Loose
-            }
+            _winnerText.text = "Player win!";
+        }
+        else
+        {
+            _winnerText.text = "Enemy win!";
         }
     }
 
+    public void RestartGame()
+    {
+         SceneManager.LoadScene(1);
+    }
+
+
     #region Combinaison
+
     private bool IsFullHouse(List<CarteData> handData)
     {
         return (handData[0].valeur == handData[1].valeur && handData[2].valeur == handData[3].valeur &&
@@ -324,5 +350,6 @@ public class GameManager : MonoBehaviour
 
         return false;
     }
-#endregion
+
+    #endregion
 }
