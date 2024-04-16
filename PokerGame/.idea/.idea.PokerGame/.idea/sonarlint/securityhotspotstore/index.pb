@@ -11,3 +11,5 @@ S
 #Assets/Scripts/SOScripts/CardsSO.cs,3\7\3700f3725907897be565c59e3157cf136743b8f1
 Z
 *Assets/Scripts/MainMenu/MainMenuManager.cs,c\7\c7131dbac1b5d0eaaeedfb4a8c25cbcbd9a759cb
+Y
+)Assets/Scripts/Animation/CardAnimation.cs,c\4\c46b2f574f53996ba9601bffeea631325d5f86ee

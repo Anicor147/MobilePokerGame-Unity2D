@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private int _playerScore = 0;
     private int _enemyScore = 0;
     private int round = 1;
+    private bool _animationRunning;
 
     private void Awake()
     {
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        CardAnimation.animationRunning += b => _animationRunning = b;
+        
         HideText();
         Shuffle();
         //  Piger();
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
 
     public void Piger()
     {
+        if (_animationRunning) return;
+        
         _enemyHandValue = 0;
         _playerHandValue = 0;
         for (int i = 0; i < 5; i++)
@@ -243,8 +248,6 @@ public class GameManager : MonoBehaviour
 
     private void CheckWinner()
     {
-        //TODO Canvas de fin de la partie qui indique le gagnant
-
         _winScreen.enabled = true;
         if (_playerScore > _enemyScore)
         {
@@ -352,4 +355,9 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    private void OnDisable()
+    {
+        CardAnimation.animationRunning -= b => _animationRunning = b ;
+    }
 }

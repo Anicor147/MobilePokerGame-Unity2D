@@ -22,6 +22,8 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image cardImage;
     private bool isHeld;
     private Color color;
+
+    public static event Action<Image> OnCardFrontChanged; 
     public CarteData Data { get; private set; }
 
     public CardsSO CardsSo
@@ -72,7 +74,8 @@ public class Carte : MonoBehaviour, IPointerDownHandler
                 carteData.color = color;
                 break;
         }
-
+    
+        OnCardFrontChanged?.Invoke(cardImage);
         enseigneText.color = color;
         valeurText.color = color;
     }
