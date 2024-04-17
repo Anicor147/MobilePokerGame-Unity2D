@@ -10,10 +10,15 @@ public class CardAnimation : MonoBehaviour
 
     [SerializeField] private GameObject[] _cardPos;
     [SerializeField] private GameObject[] _cards;
-    private int index = 0;
+
+    [SerializeField] private GameObject[] _eCardPos;
+    [SerializeField] private GameObject[] _eCards;
+
+    private int _index = 0;
+    private int _eindex = 0;
     private Image _frontCard;
-    public static event Action<bool> animationRunning; 
-    
+    public static event Action<bool> animationRunning;
+
 
     public void Awake()
     {
@@ -29,34 +34,60 @@ public class CardAnimation : MonoBehaviour
     {
         animationRunning?.Invoke(true);
         StartCoroutine(CardLocation());
+        StartCoroutine(ECardLocation());
     }
 
     private IEnumerator CardLocation()
     {
-        if (index >= _cards.Length)
+        if (_index >= _cards.Length)
         {
-            animationRunning?.Invoke(false); 
+            animationRunning?.Invoke(false);
             yield break;
         }
-        
-       
 
-        var startPosition = _cards[index].transform.position;
-        var targetPosition = _cardPos[index].transform.position;
+
+        var startPosition = _cards[_index].transform.position;
+        var targetPosition = _cardPos[_index].transform.position;
 
         float temps = 0;
-        float duration = 0.5f; 
+        float duration = 0.5f;
 
         while (temps < duration)
         {
-            _cards[index].transform.position = Vector2.Lerp(startPosition, targetPosition, temps / duration);
+            _cards[_index].transform.position = Vector2.Lerp(startPosition, targetPosition, temps / duration);
             temps += Time.deltaTime;
             yield return null;
         }
 
-        
+
         yield return new WaitForSeconds(0.1f);
-        index++;
+        _index++;
         StartCoroutine(CardLocation());
+    }
+
+    private IEnumerator ECardLocation()
+    {
+        if (_eindex >= _cards.Length)
+        {
+            yield break;
+        }
+
+        var startPosition = _eCards[_eindex].transform.position;
+        var targetPosition = _eCardPos[_eindex].transform.position;
+
+        float temps = 0;
+        float duration = 0.5f;
+
+        while (temps < duration)
+        {
+            _eCards[_eindex].transform.position = Vector2.Lerp(startPosition, targetPosition, temps / duration);
+            temps += Time.deltaTime;
+            yield return null;
+        }
+
+
+        yield return new WaitForSeconds(0.1f);
+        _eindex++;
+        StartCoroutine(ECardLocation());
     }
 }
