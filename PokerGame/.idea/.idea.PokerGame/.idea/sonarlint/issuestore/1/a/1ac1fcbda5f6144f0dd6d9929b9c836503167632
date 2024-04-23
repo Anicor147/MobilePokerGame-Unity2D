@@ -1,0 +1,8 @@
+
+“csharpsquid:S1104
+"DMake this field 'private' and encapsulate it in a 'public' property.(‘Óè±şÿÿÿÿ8ªÄÄŞğ1J$d7857e67-e8e4-4726-988b-573f12d7ca4d
+˜csharpsquid:S2223
+"IChange the visibility of 'increaseHeld' or make it 'const' or 'readonly'.(‘Óè±şÿÿÿÿ8ÉÆŞğ1J$f2d47233-710f-467c-b282-d6a83c11caf9
+¤csharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(ñõîÙşÿÿÿÿ8İ”ÏÁğ1J$89b9c632-f663-4137-a682-c66eb21b1557
+Ÿcsharpsquid:S2696)"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¸ğÍ™8¬ùÌÁğ1J$eb44083d-d9d8-4941-b60e-b5e0e4e2dcbd
+Ÿcsharpsquid:S2696C"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¸ğÍ™8€¿Şğ1J$4ea094b0-14e6-46a4-8eed-8f7a86f40f3a

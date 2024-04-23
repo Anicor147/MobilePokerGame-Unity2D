@@ -13,3 +13,9 @@ Z
 *Assets/Scripts/MainMenu/MainMenuManager.cs,c\7\c7131dbac1b5d0eaaeedfb4a8c25cbcbd9a759cb
 Y
 )Assets/Scripts/Animation/CardAnimation.cs,c\4\c46b2f574f53996ba9601bffeea631325d5f86ee
+U
+%Assets/Scripts/Manager/ShopManager.cs,1\a\1ac1fcbda5f6144f0dd6d9929b9c836503167632
+W
+'Assets/Scripts/SOScripts/SavedDataSO.cs,5\9\59d230e01a0376baf5c5126817da06e548175c51
+S
+#Assets/Scripts/Manager/UIManager.cs,7\5\75cf95a66efb0e25c200af6d7bbfa22ad00962df

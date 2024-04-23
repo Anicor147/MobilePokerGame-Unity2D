@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Manager;
 using SOScripts;
 using TMPro;
 using UnityEngine;
@@ -19,14 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _winnerBox;
     [SerializeField] private TMP_Text _pScoreText;
     [SerializeField] private TMP_Text _eScoreText;
-
+    
     [FormerlySerializedAs("_roundValue")] [SerializeField]
     private TMP_Text _roundValueText;
 
     [SerializeField] private TMP_Text _roundText;
     [SerializeField] private Canvas _winScreen;
     [SerializeField] private TMP_Text _winnerText;
-
+   public static GameManager Instance;
+   public static Action IncreaseGold;
     private List<CarteData> _deck = new List<CarteData>(52);
     private int _playerHandValue = 0;
     private int _indexCarte = 0;
@@ -35,10 +37,34 @@ public class GameManager : MonoBehaviour
     private int _enemyScore = 0;
     private int round = 1;
     private bool _animationRunning;
+    private int _maxHeld = 1;
+    private int _currentHeld;
 
+    public int MaxHeld
+    {
+        get => _maxHeld;
+        set => _maxHeld = value;
+    }
+
+    public int CurrentHeld
+    {
+        get => _currentHeld;
+        set => _currentHeld = value;
+    }
+    
+    
     private void Awake()
     {
         _winScreen.enabled = false;
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     void Start()
@@ -49,13 +75,23 @@ public class GameManager : MonoBehaviour
             {
                 _deck.Add(new CarteData(j, (Enseigne)i));
             }
+            
         }
 
+        ShopManager.increaseHeld += IncreaseMaxHeld;
         CardAnimation.animationRunning += b => _animationRunning = b;
+
+        _currentHeld = _maxHeld;
         
         HideText();
         Shuffle();
         //  Piger();
+    }
+
+    private void IncreaseMaxHeld()
+    {
+        _maxHeld++;
+        Debug.Log(_maxHeld);
     }
 
     private void HideText()
@@ -251,6 +287,7 @@ public class GameManager : MonoBehaviour
         _winScreen.enabled = true;
         if (_playerScore > _enemyScore)
         {
+            IncreaseGold?.Invoke();
             _winnerText.text = "Player win!";
         }
         else
