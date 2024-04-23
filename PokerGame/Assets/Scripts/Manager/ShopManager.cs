@@ -43,7 +43,7 @@ namespace Manager
 
         void IncreaseGoldValue()
         {
-            _goldValue++;
+            _goldValue += 10 ;
             _goldText.text = _goldValue.ToString();
             _savedDataSo.Gold = _goldValue;
         }
@@ -55,6 +55,11 @@ namespace Manager
                 Debug.Log("Button is press ,should increase");
                 increaseHeld?.Invoke();
                 _remainingHeldShopCharges--;
+
+                _goldValue -= 10;
+                if (_goldValue < 0) _goldValue = 0;
+                _goldText.text = _goldValue.ToString();
+                _savedDataSo.Gold = _goldValue;
             }
             else
             {

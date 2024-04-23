@@ -83,9 +83,10 @@ public class Carte : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Instance.CurrentHeld<= 0) return;
+        if (GameManager.Instance.CurrentHeld <= 0) return;
         isHeld = !isHeld;
         GameManager.Instance.CurrentHeld--;
+        Debug.Log(GameManager.Instance.CurrentHeld);
         heldText.enabled = isHeld;
     }
 

@@ -1,13 +1,13 @@
 
-–csharpsquid:S3244"FUnsubscribe with the same delegate that was used for the subscription.(áÕœóşÿÿÿÿ8„¸¾ğ1J$e4437611-eabe-4b53-a2f9-0dab6d99e308
-tcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõ8’÷‹ƒì1J$b26f48b4-dc0c-40a1-997f-895cf76a3c31
-“csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ğó™œùÿÿÿÿ8à–·¾ğ1J$fb4ba30d-6b84-4399-90c4-4267e62aec31
-csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(î¯•8ºÔÃŞğ1J$60cb12f3-8c3b-4901-82c5-b301d967f046
-“csharpsquid:S2292+"DMake this an auto-implemented property and remove its backing field.(Ò’ßªÿÿÿÿÿ8†¸¾ğ1J$51cb9e4f-e696-4e88-ab80-8c213d69223a
-“csharpsquid:S22921"DMake this an auto-implemented property and remove its backing field.(¢¿Üşÿÿÿÿ8œ ÏŞğ1J$7fabc079-d51b-40ce-84b8-08d59f9abbcd
-”csharpsquid:S2223"EChange the visibility of 'Instance' or make it 'const' or 'readonly'.(ğó™œùÿÿÿÿ8Ú·Êóî1J$477ddaac-ce90-4d3d-b810-975bf674c3bb
-“csharpsquid:S2223"IChange the visibility of 'IncreaseGold' or make it 'const' or 'readonly'.(î¯•8¯Æ·¾ğ1J$9d1a4a6d-79ac-4ade-b83b-8ad4bb57cf10
-Ÿcsharpsquid:S2696>"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(Ä“±Ï8‡¸¾ğ1J$99de6e70-a690-4974-9dbb-a989400ce605
-¤csharpsquid:S2696Q"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(©ÀÇØúÿÿÿÿ8öşÊŞğ1J$49d35078-4c40-4c37-8e9f-7bfdc261fb4a
-hcsharpsquid:S125X"Remove this commented out code.(İ¢Şà8‰¸¾ğ1J$453e66af-5f4e-4390-b629-2110846ac814
-ncsharpsquid:S125˜"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8‰¸¾ğ1J$5f2946bb-e709-47bc-871a-46b4c1941abd
+–csharpsquid:S3244˜"FUnsubscribe with the same delegate that was used for the subscription.(áÕœóşÿÿÿÿ8„¸¾ğ1J$e0c89dcf-f6fd-4f14-8ebc-53ea21bdf452
+tcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõ8’÷‹ƒì1J$c39d1114-f735-4b57-9027-3f909d8ba5ae
+“csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ğó™œùÿÿÿÿ8à–·¾ğ1J$c11170fd-f5c4-403c-9dff-7f500e408018
+csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(î¯•8ºÔÃŞğ1J$ba94d3be-6603-4cc5-a236-c1ee6d53518c
+“csharpsquid:S2292+"DMake this an auto-implemented property and remove its backing field.(Ò’ßªÿÿÿÿÿ8†¸¾ğ1J$1aaebe59-5660-4fa6-b999-c0024b41eea9
+“csharpsquid:S22921"DMake this an auto-implemented property and remove its backing field.(¢¿Üşÿÿÿÿ8œ ÏŞğ1J$0df8c033-8f1e-47ce-bb9e-8487dff93ec4
+”csharpsquid:S2223"EChange the visibility of 'Instance' or make it 'const' or 'readonly'.(ğó™œùÿÿÿÿ8Ú·Êóî1J$b74cbae5-5c9f-445c-b2a4-0a0b0a5ba227
+“csharpsquid:S2223"IChange the visibility of 'IncreaseGold' or make it 'const' or 'readonly'.(î¯•8¯Æ·¾ğ1J$00522f8e-bc8f-4d1f-b0c9-08b032a16cc5
+Ÿcsharpsquid:S2696>"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(Ä“±Ï8‡¸¾ğ1J$ee21bed9-dfd1-4f8a-972c-40759bca97a6
+¤csharpsquid:S2696Q"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(©ÀÇØúÿÿÿÿ8öşÊŞğ1J$fd26b45e-6a8c-412a-8379-fd106dc4230a
+hcsharpsquid:S125X"Remove this commented out code.(İ¢Şà8‰¸¾ğ1J$d0c2d4a8-5783-4fbb-b979-f5eddce1e1f7
+ncsharpsquid:S125¢"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8‰¸¾ğ1J$4d0eb6f8-d7ed-4c6f-97ae-6e881de55223

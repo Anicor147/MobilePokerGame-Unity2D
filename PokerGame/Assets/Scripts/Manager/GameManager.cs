@@ -90,7 +90,17 @@ public class GameManager : MonoBehaviour
 
     private void IncreaseMaxHeld()
     {
-        _maxHeld++;
+        if (_currentHeld <= 0 || _currentHeld < _maxHeld)
+        {
+            _currentHeld ++;
+            _maxHeld++;
+        }
+        else
+        {
+            _maxHeld++;
+            _currentHeld = _maxHeld ; 
+        }
+       
         Debug.Log(_maxHeld);
     }
 
