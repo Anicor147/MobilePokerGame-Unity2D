@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private int round = 1;
     private bool _animationRunning;
     private bool _doubleScore;
+    private bool _doubleGold;
     private int _maxHeld = 1;
     private int _currentHeld;
 
@@ -81,12 +82,18 @@ public class GameManager : MonoBehaviour
         ShopManager.increaseHeld += IncreaseMaxHeld;
         ShopManager.doubleScore += value => _doubleScore = value;
         CardAnimation.animationRunning += b => _animationRunning = b;
-
+        ShopManager.resetEScore += ResetEnemyScore;
         _currentHeld = _maxHeld;
 
         HideText();
         Shuffle();
         //  Piger();
+    }
+
+    private void ResetEnemyScore()
+    {
+        _enemyScore = 0;
+        _eScoreText.text = _enemyScore.ToString();
     }
 
     private void IncreaseMaxHeld()
