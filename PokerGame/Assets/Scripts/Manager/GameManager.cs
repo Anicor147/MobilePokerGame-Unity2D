@@ -20,15 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _winnerBox;
     [SerializeField] private TMP_Text _pScoreText;
     [SerializeField] private TMP_Text _eScoreText;
-    
+
     [FormerlySerializedAs("_roundValue")] [SerializeField]
     private TMP_Text _roundValueText;
 
     [SerializeField] private TMP_Text _roundText;
     [SerializeField] private Canvas _winScreen;
     [SerializeField] private TMP_Text _winnerText;
-   public static GameManager Instance;
-   public static Action IncreaseGold;
+    public static GameManager Instance;
+    public static Action IncreaseGold;
     private List<CarteData> _deck = new List<CarteData>(52);
     private int _playerHandValue = 0;
     private int _indexCarte = 0;
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private int _enemyScore = 0;
     private int round = 1;
     private bool _animationRunning;
+    private bool _doubleScore;
     private int _maxHeld = 1;
     private int _currentHeld;
 
@@ -51,8 +52,8 @@ public class GameManager : MonoBehaviour
         get => _currentHeld;
         set => _currentHeld = value;
     }
-    
-    
+
+
     private void Awake()
     {
         _winScreen.enabled = false;
@@ -75,14 +76,14 @@ public class GameManager : MonoBehaviour
             {
                 _deck.Add(new CarteData(j, (Enseigne)i));
             }
-            
         }
 
         ShopManager.increaseHeld += IncreaseMaxHeld;
+        ShopManager.doubleScore += value => _doubleScore = value;
         CardAnimation.animationRunning += b => _animationRunning = b;
 
         _currentHeld = _maxHeld;
-        
+
         HideText();
         Shuffle();
         //  Piger();
@@ -92,15 +93,15 @@ public class GameManager : MonoBehaviour
     {
         if (_currentHeld <= 0 || _currentHeld < _maxHeld)
         {
-            _currentHeld ++;
+            _currentHeld++;
             _maxHeld++;
         }
         else
         {
             _maxHeld++;
-            _currentHeld = _maxHeld ; 
+            _currentHeld = _maxHeld;
         }
-       
+
         Debug.Log(_maxHeld);
     }
 
@@ -130,7 +131,7 @@ public class GameManager : MonoBehaviour
     public void Piger()
     {
         if (_animationRunning) return;
-        
+
         _enemyHandValue = 0;
         _playerHandValue = 0;
         for (int i = 0; i < 5; i++)
@@ -174,92 +175,88 @@ public class GameManager : MonoBehaviour
         CheckComboValue(ref _playerHandValue, ref _enemyHandValue);
     }
 
-
     private void CheckCombo(ref Carte[] gameDeck, TMP_Text comboText, ref int value)
     {
         List<CarteData> handData = gameDeck.Select(x => x.Data).ToList();
         handData.Sort();
-        //Royal Flush
 
         if (IsRoyalFlush(handData))
         {
-            value = 10;
-            comboText.text = "Royal Flush" + value;
+            SetComboText("Royal Flush", 10, ref value, comboText);
             return;
         }
 
         if (IsStraightFlush(handData))
         {
-            value = 9;
-            comboText.text = "Straight Flush : " + value;
+            SetComboText("Straight Flush", 9, ref value, comboText);
             return;
         }
 
-        //Carre
         if (IsFourOfAKind(handData))
         {
-            value = 7;
-            comboText.text = "Four Of A Kind : " + value;
+            SetComboText("Four Of A Kind", 7, ref value, comboText);
             return;
         }
 
-        //Full
         if (IsFullHouse(handData))
         {
-            value = 6;
-            comboText.text = "Full House : " + value;
+            SetComboText("Full House", 6, ref value, comboText);
             return;
         }
-        //Flush
 
         if (IsFlush(handData))
         {
-            value = 5;
-            comboText.text = "Flush : " + value;
+            SetComboText("Flush", 5, ref value, comboText);
             return;
         }
-
 
         if (IsStraight(handData))
         {
-            value = 4;
-            comboText.text = "Straight : " + value;
+            SetComboText("Straight", 4, ref value, comboText);
             return;
         }
 
-        // Three of a kind
         if (IsThreeOfAKind(handData))
         {
-            value = 3;
-            comboText.text = "Three Of A Kind : " + value;
+            SetComboText("Three Of A Kind", 3, ref value, comboText);
             return;
         }
 
-
-        // Two pair
         if (IsTwoPair(handData))
         {
-            value = 2;
-            comboText.text = "Two Pair : " + value;
+            SetComboText("Two Pair", 2, ref value, comboText);
             return;
         }
 
-        // One Pair
         if (IsOnePair(handData))
         {
-            value = 1;
-            comboText.text = "One Pair : " + value;
+            SetComboText("One Pair", 1, ref value, comboText);
             return;
         }
 
-        if (!IsOnePair(handData) && !IsTwoPair(handData) && !IsThreeOfAKind(handData) && !IsFourOfAKind(handData) &&
-            !IsColor(handData) &&
-            !IsStraight(handData) && !IsFlush(handData) && !IsFullHouse(handData) && !IsRoyalFlush(handData) &&
-            !IsStraightFlush(handData))
+        SetComboText("High Card", 0, ref value, comboText);
+    }
+
+    private void SetComboText(string comboName, int baseValue, ref int value, TMP_Text comboText)
+    {
+        value = baseValue;
+        if (_doubleScore)
         {
-            value = 0;
-            comboText.text = "High Card : " + value;
+            Debug.Log("is doubled");
+            value *= 2;
+            if(value != 0)
+            comboText.text = $"{comboName} : {value} Its Doubled!!!";
+            else
+            {
+                comboText.text = $"{comboName} : {value}"; 
+            }
         }
+        else
+        {
+            comboText.text = $"{comboName} : {value}";
+        }
+
+        _doubleScore = false;
     }
 
     private void CheckComboValue(ref int playerValue, ref int enemyValue)
@@ -308,7 +305,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-         SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
 
@@ -405,6 +402,6 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        CardAnimation.animationRunning -= b => _animationRunning = b ;
+        CardAnimation.animationRunning -= b => _animationRunning = b;
     }
 }

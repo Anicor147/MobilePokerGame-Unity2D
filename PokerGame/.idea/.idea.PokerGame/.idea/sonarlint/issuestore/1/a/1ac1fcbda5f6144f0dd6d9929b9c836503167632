@@ -1,8 +1,11 @@
 
+Ãcsharpsquid:S1186C"yAdd a nested comment explaining why this method is empty, throw a 'NotSupportedException' or complete the implementation.(ÖÙèà8“Î×ëğ1J$7696e080-e221-464a-b683-7775611b2058
 “csharpsquid:S1104
-"DMake this field 'private' and encapsulate it in a 'public' property.(‘Óè±şÿÿÿÿ8ªÄÄŞğ1J$9b410490-43b5-4760-9559-4fc5eca740ea
+"DMake this field 'private' and encapsulate it in a 'public' property.(‘Óè±şÿÿÿÿ8ªÄÄŞğ1J$7f24e5d0-c285-4fb3-8609-4f1dd1046278
+csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(Ÿ²ù¬8”Î×ëğ1J$7b32dbd0-5292-4b81-9ed2-3f49b4887080
 ˜csharpsquid:S2223
-"IChange the visibility of 'increaseHeld' or make it 'const' or 'readonly'.(‘Óè±şÿÿÿÿ8ÉÆŞğ1J$46da9ddb-6f04-491e-af8f-b871f0a3badf
-¤csharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(ñõîÙşÿÿÿÿ8İ”ÏÁğ1J$1b2b40e4-480a-4509-9930-12d5f33b397e
-Ÿcsharpsquid:S2696)"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¸ğÍ™8¬ùÌÁğ1J$f40de346-d15d-4150-90e1-00bd672c3c6c
-Ÿcsharpsquid:S2696H"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¸ğÍ™8€¿Şğ1J$4329db91-ef7e-4595-af6a-094e6c3be706
+"IChange the visibility of 'increaseHeld' or make it 'const' or 'readonly'.(‘Óè±şÿÿÿÿ8ÉÆŞğ1J$92dd7123-0aab-45ab-9dd2-397f7d91f58b
+’csharpsquid:S2223"HChange the visibility of 'doubleScore' or make it 'const' or 'readonly'.(Ÿ²ù¬8ê‹Øëğ1J$06ec29dc-ef34-47b8-8902-16a242eb5b8f
+¤csharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(ñõîÙşÿÿÿÿ8—Î×ëğ1J$e44a9ee9-fec7-46b0-9ba1-a4e3270f9574
+Ÿcsharpsquid:S2696*"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¸ğÍ™8—Î×ëğ1J$1475ea4b-de2a-4641-8a71-8e7a15fa1ebb
+Ÿcsharpsquid:S2696O"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¸ğÍ™8—Î×ëğ1J$39e8aa76-d09b-417e-87b7-b2197541910c

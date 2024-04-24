@@ -8,6 +8,7 @@ namespace Manager
     {
         private static ShopManager instance;
         public static Action increaseHeld;
+        public static Action<bool> doubleScore;
         private int _remainingHeldShopCharges = 3;
         [SerializeField] private SavedDataSO _savedDataSo;
         [SerializeField] private TMP_Text _goldText;
@@ -61,10 +62,16 @@ namespace Manager
                 _goldText.text = _goldValue.ToString();
                 _savedDataSo.Gold = _goldValue;
             }
-            else
-            {
-                // grey button
-            }
+        }
+
+        public void DoubleGold()
+        {
+            
+        }
+
+        public void DoubleScore()
+        {
+            doubleScore?.Invoke(true);
         }
 
         private void OnDisable()
