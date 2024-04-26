@@ -45,7 +45,6 @@ public class CardAnimation : MonoBehaviour
             yield break;
         }
 
-
         var startPosition = _cards[_index].transform.position;
         var targetPosition = _cardPos[_index].transform.position;
 
@@ -84,7 +83,6 @@ public class CardAnimation : MonoBehaviour
             temps += Time.deltaTime;
             yield return null;
         }
-
 
         yield return new WaitForSeconds(0.1f);
         _eindex++;

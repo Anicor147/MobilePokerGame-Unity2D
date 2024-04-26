@@ -8,7 +8,11 @@ public class CarteData : IComparable<CarteData>
     public int valeur;
     public Enseigne enseigne;
     public Color color;
-
+    public int Valeur
+    {
+        get => valeur;
+    }
+    
     public CarteData(int valeur, Enseigne enseigne)
     {
         this.valeur = valeur;

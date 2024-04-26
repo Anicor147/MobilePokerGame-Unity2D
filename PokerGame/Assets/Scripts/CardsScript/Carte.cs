@@ -80,14 +80,21 @@ public class Carte : MonoBehaviour, IPointerDownHandler
         valeurText.color = color;
     }
 
+    internal void ShowData()
+    {
+        Debug.Log($" Enseigne : {Data.enseigne} Valeur : {Data.valeur}");
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Instance.CurrentHeld <= 0) return;
-        isHeld = !isHeld;
-        GameManager.Instance.CurrentHeld--;
-        Debug.Log(GameManager.Instance.CurrentHeld);
-        heldText.enabled = isHeld;
+        if (GameManager.Instance == null) return;
+        if (GameManager.Instance.CurrentHeld >= 0)
+        {
+            isHeld = !isHeld;
+            GameManager.Instance.CurrentHeld--;
+            Debug.Log(GameManager.Instance.CurrentHeld);
+            heldText.enabled = isHeld;
+        }
     }
 
     public void ClearHeld()

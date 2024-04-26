@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            for (int j = 1; j < 13; j++)
+            for (int j = 1; j <= 13; j++)
             {
                 _deck.Add(new CarteData(j, (Enseigne)i));
             }
