@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private List<CarteData> _eDeck = new List<CarteData>(52);
     private int _playerHandValue = 0;
     private int _indexCarte = 0;
+    private int _indexECarte = 0;
     private int _enemyHandValue = 0;
     private int _playerScore = 0;
     private int _enemyScore = 0;
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            _savedDeckSo.IsDeckModified = false;
+         // _savedDeckSo.IsDeckModified = false;
         }
         else
         {
@@ -201,10 +202,10 @@ public class GameManager : MonoBehaviour
         //Shuffle();
         for (int i = 0; i < 5; i++)
         {
-            _enemyMain[i].SetData(_eDeck[_indexCarte++]);
-            if (_indexCarte >= _eDeck.Count)
+            _enemyMain[i].SetData(_eDeck[_indexECarte++]);
+            if (_indexECarte >= _eDeck.Count)
             {
-                _indexCarte = 0;
+                _indexECarte = 0;
                 Shuffle(ref _eDeck);
             }
         }
