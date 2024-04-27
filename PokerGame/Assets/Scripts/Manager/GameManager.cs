@@ -114,8 +114,8 @@ public class GameManager : MonoBehaviour
         _currentHeld = _maxHeld;
 
         HideText();
-        Shuffle(_deck);
-        Shuffle(_eDeck);
+        Shuffle(ref _deck);
+        Shuffle(ref _eDeck);
         //  Piger();
     }
 
@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         _roundText.text = null;
     }
 
-    public void Shuffle(List<CarteData> _deck)
+    public void Shuffle(ref List<CarteData> _deck)
     {
         var temp = new List<CarteData>();
 
@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 _indexCarte = 0;
-                Shuffle(_deck);
+                Shuffle(ref _deck);
             }
         }
 
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
             if (_indexCarte >= _eDeck.Count)
             {
                 _indexCarte = 0;
-                Shuffle(_eDeck);
+                Shuffle(ref _eDeck);
             }
         }
         

@@ -8,7 +8,7 @@ public class SavedDeckSO : ScriptableObject
     private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
 
     private bool _isDeckModified;
-    [SerializeField] private List<CarteData> _savedDeck = new List<CarteData>();
+    private List<CarteData> _savedDeck = new List<CarteData>();
 
     public bool IsDeckModified
     {
