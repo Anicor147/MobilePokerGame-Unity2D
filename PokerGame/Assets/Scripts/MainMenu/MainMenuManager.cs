@@ -9,6 +9,9 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private Canvas _optionCanvas;
+    [SerializeField] private Canvas _cardsManagerCanvas;
+
+    public static Action closeShop;
     private bool closedOptions = true;
 
     
@@ -16,6 +19,7 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         _optionCanvas.enabled = false;
+        _cardsManagerCanvas.enabled = false;
     }
 
     public void LoadNextScene()
@@ -35,4 +39,21 @@ public class MainMenuManager : MonoBehaviour
 
         closedOptions = false;
     }
+
+
+    public void OpenShop()
+    {
+        _cardsManagerCanvas.enabled = true;
+    }
+
+    public void CloseShop()
+    {
+        closeShop?.Invoke();
+        _cardsManagerCanvas.enabled = false;
+    }
+
+
+
+
+
 }

@@ -21,3 +21,5 @@ S
 #Assets/Scripts/Manager/UIManager.cs,7\5\75cf95a66efb0e25c200af6d7bbfa22ad00962df
 S
 #Assets/Scripts/MainMenu/MenuShop.cs,f\a\fa31119c828ba666dfa793990be4a2e410683720
+W
+'Assets/Scripts/SOScripts/SavedDeckSO.cs,c\7\c757db0bf5df71df4e2e03f40a5809ccb5cfe072

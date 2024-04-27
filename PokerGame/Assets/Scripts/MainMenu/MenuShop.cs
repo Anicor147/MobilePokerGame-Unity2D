@@ -3,17 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MenuShop : MonoBehaviour
 {
     private List<CarteData> _deck = new List<CarteData>(52);
-    [SerializeField] private List<Carte> _main;
+    [SerializeField] private List<Carte> _cards;
     [SerializeField] private List<GameObject> _cardsObjects;
     [SerializeField] private Sprite _boughtImage;
     [SerializeField] private List<Button> _cardsButton;
+
+    [SerializeField] private SavedDeckSO _savedSODeck;
+
     private void Start()
     {
+        MainMenuManager.closeShop += SaveCurrentDeck;
+
+
         for (int i = 0; i < 4; i++)
         {
             for (int j = 1; j <= 13; j++)
@@ -24,31 +31,34 @@ public class MenuShop : MonoBehaviour
 
         for (int i = 0; i < _deck.Count; i++)
         {
-            _main[i].SetData(_deck[i]);
+            _cards[i].SetData(_deck[i]);
 
             if (i >= _deck.Count)
             {
                 i = 0;
             }
         }
-        
+
         UpdateIndex();
     }
 
     public void ButtonIndex(int index)
     {
-        _main[index].ShowData();
-        Debug.Log($"The index is : {index}");
+        if (_deck.Count <= 5) return;
         _cardsObjects[index].gameObject.GetComponent<Image>().sprite = _boughtImage;
         _cardsObjects[index].gameObject.GetComponentInChildren<Button>().image.color = Color.grey;
         _cardsObjects[index].gameObject.GetComponentInChildren<Button>().interactable = false;
-        
+
+        _cardsObjects[index].gameObject.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+
+        _cardsObjects.RemoveAt(index);
         _cardsButton.RemoveAt(index);
-        _main.RemoveAt(index);
+        _cards.RemoveAt(index);
+        _deck.RemoveAt(index);
         UpdateIndex();
     }
 
-   void UpdateIndex()
+    void UpdateIndex()
     {
         for (int i = 0; i < _cardsButton.Count; i++)
         {
@@ -58,5 +68,18 @@ public class MenuShop : MonoBehaviour
         }
     }
 
-   
+    private void SaveCurrentDeck()
+    {
+        _savedSODeck.IsDeckModified = true;
+
+        /*if (_savedSODeck.SavedDeck.Count > 0)
+        {
+            _savedSODeck.ClearDeck();
+        }*/
+
+        for (int i = 0; i < _deck.Count; i++)
+        {
+            _savedSODeck.SavedDeck.Add(_deck[i]);
+        }
+    }
 }

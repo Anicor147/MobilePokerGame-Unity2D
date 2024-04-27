@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _winnerBox;
     [SerializeField] private TMP_Text _pScoreText;
     [SerializeField] private TMP_Text _eScoreText;
+    [SerializeField] private SavedDeckSO _savedDeckSo;
 
     [FormerlySerializedAs("_roundValue")] [SerializeField]
     private TMP_Text _roundValueText;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static Action IncreaseGold;
     private List<CarteData> _deck = new List<CarteData>(52);
+
+    private List<CarteData> _eDeck = new List<CarteData>(52);
     private int _playerHandValue = 0;
     private int _indexCarte = 0;
     private int _enemyHandValue = 0;
@@ -71,13 +74,38 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 4; i++)
+        Debug.Log(_savedDeckSo.IsDeckModified);
+        if (_savedDeckSo.IsDeckModified)
         {
-            for (int j = 1; j <= 13; j++)
+            for (int i = 0; i < _savedDeckSo.SavedDeck.Count; i++)
             {
-                _deck.Add(new CarteData(j, (Enseigne)i));
+                _deck.Add(_savedDeckSo.SavedDeck[i]);
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 1; j <= 13; j++)
+                {
+                    _eDeck.Add(new CarteData(j, (Enseigne)i));
+                    Debug.Log(_eDeck[i]);
+                }
+            }
+
+            _savedDeckSo.IsDeckModified = false;
+        }
+        else
+        {
+            Debug.Log(" not modified");
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 1; j <= 13; j++)
+                {
+                    _deck.Add(new CarteData(j, (Enseigne)i));
+                    _eDeck.Add(new CarteData(j, (Enseigne)i));
+                }
             }
         }
+
 
         ShopManager.increaseHeld += IncreaseMaxHeld;
         ShopManager.doubleScore += value => _doubleScore = value;
@@ -86,7 +114,8 @@ public class GameManager : MonoBehaviour
         _currentHeld = _maxHeld;
 
         HideText();
-        Shuffle();
+        Shuffle(_deck);
+        Shuffle(_eDeck);
         //  Piger();
     }
 
@@ -121,7 +150,7 @@ public class GameManager : MonoBehaviour
         _roundText.text = null;
     }
 
-    public void Shuffle()
+    public void Shuffle(List<CarteData> _deck)
     {
         var temp = new List<CarteData>();
 
@@ -148,12 +177,14 @@ public class GameManager : MonoBehaviour
                 continue;
             }
 
-            _main[i].SetData(_deck[_indexCarte++]);
-
-            if (_indexCarte >= _deck.Count)
+            if (_indexCarte < _deck.Count)
+            {
+                _main[i].SetData(_deck[_indexCarte++]);
+            }
+            else
             {
                 _indexCarte = 0;
-                Shuffle();
+                Shuffle(_deck);
             }
         }
 
@@ -165,18 +196,19 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CheckCombo(ref _main, _playerComboText, ref _playerHandValue);
+            CheckCombo(ref _main, _playerComboText, ref _playerHandValue);
 
         //Shuffle();
         for (int i = 0; i < 5; i++)
         {
-            _enemyMain[i].SetData(_deck[_indexCarte++]);
-            if (_indexCarte >= _deck.Count)
+            _enemyMain[i].SetData(_eDeck[_indexCarte++]);
+            if (_indexCarte >= _eDeck.Count)
             {
                 _indexCarte = 0;
-                Shuffle();
+                Shuffle(_eDeck);
             }
         }
+        
 
         CheckCombo(ref _enemyMain, _enemyComboText, ref _enemyHandValue);
         CheckComboValue(ref _playerHandValue, ref _enemyHandValue);
@@ -251,11 +283,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("is doubled");
             value *= 2;
-            if(value != 0)
-            comboText.text = $"{comboName} : {value} Its Doubled!!!";
+            if (value != 0)
+                comboText.text = $"{comboName} : {value} Its Doubled!!!";
             else
             {
-                comboText.text = $"{comboName} : {value}"; 
+                comboText.text = $"{comboName} : {value}";
             }
         }
         else
