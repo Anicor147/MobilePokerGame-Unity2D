@@ -1,5 +1,6 @@
 
-jcsharpsquid:S3903	"'Move 'MenuShop' into a named namespace.(ò‹½J$2c35c9f4-8921-420e-9c6a-309cdef58eaa
-bcsharpsquid:S2933"Make '_deck' 'readonly'.(ÔÁâ8á¦€–ñ1J$7d6b1214-e748-4ad9-a666-d6dd52f1ec59
-¤csharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(àÑˆãøÿÿÿÿ8Ü‡²Ûñ1J$a2280950-2c16-4803-92c8-88d7a0e0abdc
-hcsharpsquid:S125K"Remove this commented out code.(¨ÂÑÙ8©áÇİñ1J$0b5c2832-053c-4385-be60-3ce55f79ac8a
+jcsharpsquid:S3903	"'Move 'MenuShop' into a named namespace.(ò‹½J$a2c97f2d-bee4-4657-a00c-0f68014f88a8
+bcsharpsquid:S2933"Make '_deck' 'readonly'.(ÔÁâ8á¦€–ñ1J$624cd4b7-5c45-415f-a661-a2bc6a0f52ae
+hcsharpsquid:S2933"Make '_Sdeck' 'readonly'.(Œö¹»şÿÿÿÿ8¦§Ûò1J$6c70d52e-7f91-417c-aeac-ff2dd32fcccb
+¤csharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(àÑˆãøÿÿÿÿ8Ü‡²Ûñ1J$736c08c4-6be4-4698-9ddc-56a1d3302236
+hcsharpsquid:S125]"Remove this commented out code.(¨ÂÑÙ8©áÇİñ1J$6d706f3d-1551-4163-a05d-83a62dfa1a77

@@ -10,7 +10,8 @@ public enum Enseigne
     Coeur,
     Pique,
     Carreau,
-    Trefle
+    Trefle,
+    Joker
 }
 
 public class Carte : MonoBehaviour, IPointerDownHandler
@@ -19,6 +20,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     [SerializeField] private TMP_Text enseigneText;
     [SerializeField] private TMP_Text heldText;
     [SerializeField] private CardsSO _cardsSo;
+    [SerializeField] private SpecialCardsSO _specialCardsSo;
     [SerializeField] private Image cardImage;
     private bool isHeld;
     private Color color;
@@ -72,6 +74,20 @@ public class Carte : MonoBehaviour, IPointerDownHandler
                 cardImage.sprite = _cardsSo.spritesClover[carteData.valeur - 1];
                 color = Color.black;
                 carteData.color = color;
+                break;
+            
+            case Enseigne.Joker:
+                cardImage.sprite = _specialCardsSo.JokerCards[carteData.valeur];
+                if (carteData.valeur == 0)
+                {
+                    color = Color.black;
+                    carteData.color = color;
+                }
+                else
+                {
+                    color = Color.red;
+                    carteData.color = color;
+                }
                 break;
         }
     

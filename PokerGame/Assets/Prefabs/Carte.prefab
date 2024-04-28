@@ -501,4 +501,5 @@ MonoBehaviour:
   enseigneText: {fileID: 8369747541953610116}
   heldText: {fileID: 6425977735342101892}
   _cardsSo: {fileID: 11400000, guid: 80f1786f1076f15429ebb938c1a6d0ff, type: 2}
+  _specialCardsSo: {fileID: 11400000, guid: 7b739ad53c6d3524292f75b903c46ba1, type: 2}
   cardImage: {fileID: 7746619258438361256}

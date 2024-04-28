@@ -9,8 +9,11 @@ using UnityEngine.UI;
 public class MenuShop : MonoBehaviour
 {
     private List<CarteData> _deck = new List<CarteData>(52);
+    private List<CarteData> _Sdeck = new List<CarteData>(2);
     [SerializeField] private List<Carte> _cards;
+    [SerializeField] private List<Carte> _specialCards;
     [SerializeField] private List<GameObject> _cardsObjects;
+
     [SerializeField] private Sprite _boughtImage;
     [SerializeField] private List<Button> _cardsButton;
 
@@ -39,6 +42,21 @@ public class MenuShop : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < _specialCards.Count; i++)
+        {
+            _Sdeck.Add(new CarteData(i , Enseigne.Joker));
+        }
+
+        for (int i = 0; i < _Sdeck.Count; i++)
+        {
+            _specialCards[i].SetData(_Sdeck[i]); 
+            if (i >= _Sdeck.Count)
+            {
+                i = 0;
+            }
+        }
+        
+        
         UpdateIndex();
     }
 
@@ -81,5 +99,11 @@ public class MenuShop : MonoBehaviour
         {
             _savedSODeck.SavedDeck.Add(_deck[i]);
         }
+    }
+
+
+    public void AddJoker(int index)
+    {
+        _deck.Add(new CarteData(index, Enseigne.Joker));
     }
 }

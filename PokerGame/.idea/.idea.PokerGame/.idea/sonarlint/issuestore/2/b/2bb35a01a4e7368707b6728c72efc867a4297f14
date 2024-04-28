@@ -1,15 +1,16 @@
 
-–csharpsquid:S3244¼"FUnsubscribe with the same delegate that was used for the subscription.(áÕœóşÿÿÿÿ8Š¨¿Şñ1J$8070f745-a1fa-40fc-bf1f-616254e0a048
-tcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõ8’÷‹ƒì1J$07a5b0d5-3273-4135-b93d-350486b8926a
-“csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ğó™œùÿÿÿÿ8à–·¾ğ1J$a32e674b-b3c4-4d9f-8c9e-99290ba8884d
-csharpsquid:S1104 "DMake this field 'private' and encapsulate it in a 'public' property.(î¯•8ºÔÃŞğ1J$11ac2cec-3701-47db-9bdf-1a08574165c7
-“csharpsquid:S22920"DMake this an auto-implemented property and remove its backing field.(Ò’ßªÿÿÿÿÿ8†¸¾ğ1J$ac214184-331b-4642-9a78-afb80d9a591d
-“csharpsquid:S22926"DMake this an auto-implemented property and remove its backing field.(¢¿Üşÿÿÿÿ8œ ÏŞğ1J$86f4ba5a-2748-4edb-9a3a-29e12f0f4255
-”csharpsquid:S2223"EChange the visibility of 'Instance' or make it 'const' or 'readonly'.(ğó™œùÿÿÿÿ8Ú·Êóî1J$23eeea43-c362-426a-b307-eab930a5df70
-“csharpsquid:S2223 "IChange the visibility of 'IncreaseGold' or make it 'const' or 'readonly'.(î¯•8¯Æ·¾ğ1J$3bbdda6a-5cdf-4a24-984f-caf1f0d206cd
-Ÿcsharpsquid:S2696C"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(Ä“±Ï8‡¸¾ğ1J$e70e8747-8a68-41a0-a6b7-da257619451b
-¤csharpsquid:S2696n"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(©ÀÇØúÿÿÿÿ8÷ÁÚëğ1J$51c7865f-67e7-49cb-8ebf-afa3acd4d617
-Ÿcsharpsquid:S2696o"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¹§ô8–¼Ø‡ñ1J$9b13364b-113f-46a3-ae78-7842df7f4265
-¤csharpsquid:S2696q"UMake the enclosing instance method 'static' or remove this set on the 'static' field.( ²Ö„ûÿÿÿÿ8óú‚Šñ1J$afdb08e2-e0b7-4b65-be54-aa7c1427f9bd
-hcsharpsquid:S125w"Remove this commented out code.(İ¢Şà8ÿ“åèñ1J$45d49905-29f6-4133-a346-375131754043
-ncsharpsquid:S125É"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8¨¿Şñ1J$7891c97f-0077-4676-8500-b142137fe73e
+–csharpsquid:S3244Ó"FUnsubscribe with the same delegate that was used for the subscription.(áÕœóşÿÿÿÿ8Š¨¿Şñ1J$29715af6-bc60-4def-a3a8-579e3530307f
+tcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõ8’÷‹ƒì1J$b1dca41e-7f4c-4904-a649-1ec4ecfc96ac
+“csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(ğó™œùÿÿÿÿ8à–·¾ğ1J$80e9cbde-a4cc-4a7a-b045-f8746d03af18
+csharpsquid:S1104 "DMake this field 'private' and encapsulate it in a 'public' property.(î¯•8ºÔÃŞğ1J$4a885768-176f-44fe-890e-29de1d22d95f
+“csharpsquid:S22921"DMake this an auto-implemented property and remove its backing field.(Ò’ßªÿÿÿÿÿ8†¸¾ğ1J$29877954-ec07-4da1-bb79-1620f48995dd
+“csharpsquid:S22927"DMake this an auto-implemented property and remove its backing field.(¢¿Üşÿÿÿÿ8œ ÏŞğ1J$3c4ceea5-0603-474f-a16e-3d01b182f48b
+”csharpsquid:S2223"EChange the visibility of 'Instance' or make it 'const' or 'readonly'.(ğó™œùÿÿÿÿ8Ú·Êóî1J$fc5f82a4-3fc9-4236-8af4-f55b3d521caa
+“csharpsquid:S2223 "IChange the visibility of 'IncreaseGold' or make it 'const' or 'readonly'.(î¯•8¯Æ·¾ğ1J$b310a420-9b98-4b2b-89a8-9f7457db252b
+Ÿcsharpsquid:S2696D"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(Ä“±Ï8‡¸¾ğ1J$9ef677aa-f7bc-4b2a-8d17-070728d1b6dc
+¤csharpsquid:S2696o"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(©ÀÇØúÿÿÿÿ8–¼Ø‡ñ1J$a2326158-e4ce-4698-9c50-18843b77c32f
+Ÿcsharpsquid:S2696p"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¹§ô8ø²«ò1J$e69e7e16-3c16-4583-a3f0-e412f39d8ae8
+¤csharpsquid:S2696r"UMake the enclosing instance method 'static' or remove this set on the 'static' field.( ²Ö„ûÿÿÿÿ8óú‚Šñ1J$2520ee3e-cbfd-41bd-94b4-8d2eac23366a
+mcsharpsquid:S125_"Remove this commented out code.(º«¥áûÿÿÿÿ8ø²«ò1J$dc169432-1ae5-417f-9aee-965899327842
+hcsharpsquid:S125x"Remove this commented out code.(İ¢Şà8ÿ“åèñ1J$6877a648-d207-4cd7-800e-4faf9f345d9f
+ncsharpsquid:S125Ê"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8¨¿Şñ1J$d5ebdddc-2267-4429-91b0-0e013eb90457

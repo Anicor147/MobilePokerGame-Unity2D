@@ -219,7 +219,9 @@ public class GameManager : MonoBehaviour
     {
         List<CarteData> handData = gameDeck.Select(x => x.Data).ToList();
         handData.Sort();
-
+        
+        CheckForJokers(handData);
+        
         if (IsRoyalFlush(handData))
         {
             SetComboText("Royal Flush", 10, ref value, comboText);
@@ -350,6 +352,26 @@ public class GameManager : MonoBehaviour
 
 
     #region Combinaison
+
+    private void CheckForJokers(List<CarteData> handData)
+    {
+        foreach (var card in handData)
+        {
+            if (card.enseigne == Enseigne.Joker)
+            {
+                if (card.color == Color.black)
+                {
+                    IncreaseGold?.Invoke();
+                }
+                else if (card.color == Color.red)
+                {
+                    _enemyScore -= 5;
+                    _eScoreText.text = _enemyScore.ToString(); 
+                }
+                
+            }
+        }        
+    }
 
     private bool IsFullHouse(List<CarteData> handData)
     {

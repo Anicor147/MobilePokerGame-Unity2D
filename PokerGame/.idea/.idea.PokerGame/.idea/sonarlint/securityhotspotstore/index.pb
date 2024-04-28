@@ -23,3 +23,5 @@ S
 #Assets/Scripts/MainMenu/MenuShop.cs,f\a\fa31119c828ba666dfa793990be4a2e410683720
 W
 'Assets/Scripts/SOScripts/SavedDeckSO.cs,c\7\c757db0bf5df71df4e2e03f40a5809ccb5cfe072
+Z
+*Assets/Scripts/SOScripts/SpecialCardsSO.cs,9\e\9e19281192bc62874d1cd41619a7788af9ea3c71
