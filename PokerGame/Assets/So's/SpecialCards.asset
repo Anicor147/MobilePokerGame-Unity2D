@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcda043120cc124e906513aac7bb92e, type: 3}
   m_Name: SpecialCards
   m_EditorClassIdentifier: 
-  _jokerCards: []
+  _jokerCards:
+  - {fileID: -1163282147, guid: cb2730d13b5f23440b4de5174d29486e, type: 3}
+  - {fileID: 429449872, guid: cb2730d13b5f23440b4de5174d29486e, type: 3}

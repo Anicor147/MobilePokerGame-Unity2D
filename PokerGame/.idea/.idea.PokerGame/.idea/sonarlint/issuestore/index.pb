@@ -25,3 +25,11 @@ W
 'Assets/Scripts/SOScripts/SavedDeckSO.cs,c\7\c757db0bf5df71df4e2e03f40a5809ccb5cfe072
 Z
 *Assets/Scripts/SOScripts/SpecialCardsSO.cs,9\e\9e19281192bc62874d1cd41619a7788af9ea3c71
+V
+&Assets/Scripts/Manager/AudioManager.cs,2\a\2a44c69fe33bf083139ebfd6e413dd6b65148cab
+S
+#Assets/Scripts/SOScripts/AudioSO.cs,c\5\c5864502e4ce0f6797bf343a48e920c193c86ef6
+Q
+!Assets/Scripts/Manager/Options.cs,1\8\187e75fe5f2bc4d7354a7063c79b534dfc052fee
+[
++Assets/StatisticsScripts/StatsCalculator.cs,c\5\c5e836e636766b60b4a3ee8138bdc907542465a3

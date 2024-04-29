@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GoldText
+  - Music
   layers:
   - Default
   - TransparentFX

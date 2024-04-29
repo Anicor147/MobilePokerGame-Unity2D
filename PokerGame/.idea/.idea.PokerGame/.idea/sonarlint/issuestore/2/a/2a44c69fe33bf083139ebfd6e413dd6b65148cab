@@ -1,0 +1,5 @@
+
+ncsharpsquid:S3903"+Move 'AudioManager' into a named namespace.(‡­Ç¸J$b2b62df5-624b-4376-9aea-c8744df9b172
+“csharpsquid:S1104"DMake this field 'private' and encapsulate it in a 'public' property.(´½âÿıÿÿÿÿ8—¦Áò1J$8ee0ef2b-60e2-43a1-9c8e-22693958e859
+”csharpsquid:S2223"EChange the visibility of 'instance' or make it 'const' or 'readonly'.(´½âÿıÿÿÿÿ8—¦Áò1J$055fd834-d534-4a54-a0b2-c954f486a69c
+¤csharpsquid:S2696"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(ñõîÙşÿÿÿÿ8˜¦Áò1J$c895589b-a051-4647-937b-cce5042cc0df

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class CardAnimation : MonoBehaviour
@@ -14,6 +15,10 @@ public class CardAnimation : MonoBehaviour
     [SerializeField] private GameObject[] _eCardPos;
     [SerializeField] private GameObject[] _eCards;
 
+    [FormerlySerializedAs("_audioClip")] [SerializeField]
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip _audioClip;
     private int _index = 0;
     private int _eindex = 0;
     private Image _frontCard;
@@ -23,6 +28,7 @@ public class CardAnimation : MonoBehaviour
     public void Awake()
     {
         Carte.OnCardFrontChanged += image => SetFrontCard(image);
+        _audioSource = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
     }
 
     private void SetFrontCard(Image image)
@@ -39,6 +45,10 @@ public class CardAnimation : MonoBehaviour
 
     private IEnumerator CardLocation()
     {
+        if (_index < _cards.Length)
+        {
+            _audioSource.PlayOneShot(_audioClip); 
+        }
         if (_index >= _cards.Length)
         {
             animationRunning?.Invoke(false);
@@ -58,8 +68,8 @@ public class CardAnimation : MonoBehaviour
             yield return null;
         }
 
-
         yield return new WaitForSeconds(0.1f);
+
         _index++;
         StartCoroutine(CardLocation());
     }

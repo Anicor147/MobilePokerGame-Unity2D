@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Manager;
 using SOScripts;
 using TMPro;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _pScoreText;
     [SerializeField] private TMP_Text _eScoreText;
     [SerializeField] private SavedDeckSO _savedDeckSo;
+
 
     [FormerlySerializedAs("_roundValue")] [SerializeField]
     private TMP_Text _roundValueText;
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
     private bool _doubleGold;
     private int _maxHeld = 1;
     private int _currentHeld;
+    private bool _checkJoker = false;
 
     public int MaxHeld
     {
@@ -92,7 +95,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-         // _savedDeckSo.IsDeckModified = false;
+            // _savedDeckSo.IsDeckModified = false;
         }
         else
         {
@@ -197,7 +200,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-            CheckCombo(ref _main, _playerComboText, ref _playerHandValue);
+        CheckCombo(ref _main, _playerComboText, ref _playerHandValue);
 
         //Shuffle();
         for (int i = 0; i < 5; i++)
@@ -209,7 +212,7 @@ public class GameManager : MonoBehaviour
                 Shuffle(ref _eDeck);
             }
         }
-        
+
 
         CheckCombo(ref _enemyMain, _enemyComboText, ref _enemyHandValue);
         CheckComboValue(ref _playerHandValue, ref _enemyHandValue);
@@ -219,58 +222,73 @@ public class GameManager : MonoBehaviour
     {
         List<CarteData> handData = gameDeck.Select(x => x.Data).ToList();
         handData.Sort();
-        
-        CheckForJokers(handData);
-        
-        if (IsRoyalFlush(handData))
+
+
+        if (HasJokers(ref handData))
+        {
+            for (int i = 0; i < handData.Count; i++)
+            {
+                if (handData[i].color == Color.black)
+                {
+                    IncreaseGold?.Invoke();
+                }
+                else if (handData[i].color == Color.red)
+                {
+                    _enemyScore -= 5;
+                    _eScoreText.text = _enemyScore.ToString();
+                }
+            }
+        }
+
+        if (IsRoyalFlush(ref handData))
         {
             SetComboText("Royal Flush", 10, ref value, comboText);
             return;
         }
 
-        if (IsStraightFlush(handData))
+        if (IsStraightFlush(ref handData))
         {
             SetComboText("Straight Flush", 9, ref value, comboText);
             return;
         }
 
-        if (IsFourOfAKind(handData))
+        if (IsFourOfAKind(ref handData))
         {
             SetComboText("Four Of A Kind", 7, ref value, comboText);
             return;
         }
 
-        if (IsFullHouse(handData))
+        if (IsFullHouse(ref handData))
         {
             SetComboText("Full House", 6, ref value, comboText);
             return;
         }
 
-        if (IsFlush(handData))
+        if (IsFlush(ref handData))
         {
             SetComboText("Flush", 5, ref value, comboText);
             return;
         }
 
-        if (IsStraight(handData))
+        if (IsStraight(ref handData))
         {
             SetComboText("Straight", 4, ref value, comboText);
             return;
         }
 
-        if (IsThreeOfAKind(handData))
+        if (IsThreeOfAKind(ref handData))
         {
             SetComboText("Three Of A Kind", 3, ref value, comboText);
             return;
         }
 
-        if (IsTwoPair(handData))
+        if (IsTwoPair(ref handData))
         {
             SetComboText("Two Pair", 2, ref value, comboText);
             return;
         }
 
-        if (IsOnePair(handData))
+        if (IsOnePair(ref handData))
         {
             SetComboText("One Pair", 1, ref value, comboText);
             return;
@@ -353,27 +371,20 @@ public class GameManager : MonoBehaviour
 
     #region Combinaison
 
-    private void CheckForJokers(List<CarteData> handData)
+    private bool HasJokers(ref List<CarteData> handData)
     {
-        foreach (var card in handData)
+        for (int i = 0; i < handData.Count; i++)
         {
-            if (card.enseigne == Enseigne.Joker)
+            if (handData[i].enseigne == Enseigne.Joker)
             {
-                if (card.color == Color.black)
-                {
-                    IncreaseGold?.Invoke();
-                }
-                else if (card.color == Color.red)
-                {
-                    _enemyScore -= 5;
-                    _eScoreText.text = _enemyScore.ToString(); 
-                }
-                
+                return true;
             }
-        }        
+        }
+
+        return false;
     }
 
-    private bool IsFullHouse(List<CarteData> handData)
+    private bool IsFullHouse(ref List<CarteData> handData)
     {
         return (handData[0].valeur == handData[1].valeur && handData[2].valeur == handData[3].valeur &&
                 handData[3].valeur == handData[4].valeur) ||
@@ -381,7 +392,7 @@ public class GameManager : MonoBehaviour
                 handData[3].valeur == handData[4].valeur);
     }
 
-    private bool IsFourOfAKind(List<CarteData> handData)
+    private bool IsFourOfAKind(ref List<CarteData> handData)
     {
         return (handData[0].valeur == handData[1].valeur && handData[1].valeur == handData[2].valeur &&
                 handData[2].valeur == handData[3].valeur) ||
@@ -389,12 +400,12 @@ public class GameManager : MonoBehaviour
                 handData[3].valeur == handData[4].valeur);
     }
 
-    private bool IsRoyalFlush(List<CarteData> handData)
+    private bool IsRoyalFlush(ref List<CarteData> handData)
     {
-        return IsStraightFlush(handData) && handData[0].valeur == 10;
+        return IsStraightFlush(ref handData) && handData[0].valeur == 10;
     }
 
-    private bool IsFlush(List<CarteData> handData)
+    private bool IsFlush(ref List<CarteData> handData)
     {
         return (handData[0].enseigne == handData[1].enseigne
                 && handData[0].enseigne == handData[2].enseigne
@@ -402,18 +413,18 @@ public class GameManager : MonoBehaviour
                 && handData[0].enseigne == handData[4].enseigne);
     }
 
-    private bool IsColor(List<CarteData> handData)
+    private bool IsColor(ref List<CarteData> handData)
     {
         return (handData[0].color == handData[1].color && handData[1].color == handData[2].color &&
                 handData[2].color == handData[3].color && handData[3].color == handData[4].color);
     }
 
-    private bool IsStraightFlush(List<CarteData> handData)
+    private bool IsStraightFlush(ref List<CarteData> handData)
     {
-        return IsStraight(handData) && IsColor(handData);
+        return IsStraight(ref handData) && IsColor(ref handData);
     }
 
-    private bool IsStraight(List<CarteData> handData)
+    private bool IsStraight(ref List<CarteData> handData)
     {
         for (int i = 1; i < handData.Count; i++)
         {
@@ -426,13 +437,13 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    private bool IsThreeOfAKind(List<CarteData> handData)
+    private bool IsThreeOfAKind(ref List<CarteData> handData)
     {
         return (handData[0].valeur == handData[1].valeur && handData[1].valeur == handData[2].valeur) ||
                (handData[1].valeur == handData[2].valeur && handData[2].valeur == handData[3].valeur);
     }
 
-    private bool IsTwoPair(List<CarteData> handData)
+    private bool IsTwoPair(ref List<CarteData> handData)
     {
         int pairCount = 0;
         for (int i = 0; i < handData.Count - 1; i++)
@@ -447,7 +458,7 @@ public class GameManager : MonoBehaviour
         return pairCount == 2;
     }
 
-    private bool IsOnePair(List<CarteData> handData)
+    private bool IsOnePair(ref List<CarteData> handData)
     {
         for (int i = 0; i < handData.Count - 1; i++)
         {
