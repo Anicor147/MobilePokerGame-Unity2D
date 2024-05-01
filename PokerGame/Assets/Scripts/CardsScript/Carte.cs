@@ -25,7 +25,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
     private bool isHeld;
     private Color color;
 
-    public static event Action<Image> OnCardFrontChanged; 
+    public static event Action<Image> OnCardFrontChanged;
     public CarteData Data { get; private set; }
 
     public CardsSO CardsSo
@@ -33,7 +33,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
         get => _cardsSo;
         set => _cardsSo = value;
     }
-    
+
     public bool IsHeld
     {
         get => isHeld;
@@ -75,7 +75,7 @@ public class Carte : MonoBehaviour, IPointerDownHandler
                 color = Color.black;
                 carteData.color = color;
                 break;
-            
+
             case Enseigne.Joker:
                 cardImage.sprite = _specialCardsSo.JokerCards[carteData.valeur];
                 if (carteData.valeur == 0)
@@ -88,9 +88,10 @@ public class Carte : MonoBehaviour, IPointerDownHandler
                     color = Color.red;
                     carteData.color = color;
                 }
+
                 break;
         }
-    
+
         OnCardFrontChanged?.Invoke(cardImage);
         enseigneText.color = color;
         valeurText.color = color;
@@ -103,12 +104,19 @@ public class Carte : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (GameManager.Instance == null) return;
-        if (GameManager.Instance.CurrentHeld >= 0)
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.CurrentHeld >= 0)
+            {
+                isHeld = !isHeld;
+                GameManager.Instance.CurrentHeld--;
+                Debug.Log(GameManager.Instance.CurrentHeld);
+                heldText.enabled = isHeld;
+            }
+        }
+        else
         {
             isHeld = !isHeld;
-            GameManager.Instance.CurrentHeld--;
-            Debug.Log(GameManager.Instance.CurrentHeld);
             heldText.enabled = isHeld;
         }
     }

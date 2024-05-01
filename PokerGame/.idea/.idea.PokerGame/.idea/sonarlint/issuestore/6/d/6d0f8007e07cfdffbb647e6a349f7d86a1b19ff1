@@ -1,0 +1,20 @@
+
+¡csharpsquid:S3776<"RRefactor this method to reduce its Cognitive Complexity from 99 to the 15 allowed.(„‘ÇÌûÿÿÿÿ8«øæâò1J$571f4762-ea6b-4466-b83f-aab3a1f2b313
+xcsharpsquid:S3903".Move 'StatsCalculator' into a named namespace.(¸ïÓž8¬øæâò1J$aaeb89ea-179a-4e7d-b3f1-d9af1ee3fe90
+bcsharpsquid:S2933"Make '_deck' 'readonly'.(ÔÁâ8õÈêŠó1J$0167f621-473e-41bc-8c3d-7e94dd58261a
+ycsharpsquid:S1066r"/Merge this if statement with the enclosing one.(’šªû8 Ë¯ˆó1J$1024c8f5-70be-4bc9-8120-e684959baa8e
+zcsharpsquid:S1066"/Merge this if statement with the enclosing one.(ûÇ£û8 Ë¯ˆó1J$3808ef5a-08ee-47ee-bbf0-093468a95f0d
+csharpsquid:S1066"/Merge this if statement with the enclosing one.(†ÃÃýÿÿÿÿ8 Ë¯ˆó1J$f08109a1-152b-444b-ac8a-c841fff8deda
+zcsharpsquid:S1066Ÿ"/Merge this if statement with the enclosing one.(¶ÞÀÆ8¡Ë¯ˆó1J$838ab293-6d66-4f9c-ba76-e8009ab31df4
+csharpsquid:S1066®"/Merge this if statement with the enclosing one.(ô®†¢øÿÿÿÿ8¡Ë¯ˆó1J$d11ae893-3950-4460-80c6-53f99421cfe6
+zcsharpsquid:S1066½"/Merge this if statement with the enclosing one.(ËÿÖß8¡Ë¯ˆó1J$f3a46b97-8c56-4dce-9ab0-216574bdb797
+zcsharpsquid:S1066Ì"/Merge this if statement with the enclosing one.(¦×ÚÜ8¡Ë¯ˆó1J$b0d1c9e3-f669-4d74-8ad0-436cdb1cfe4a
+zcsharpsquid:S1066Û"/Merge this if statement with the enclosing one.(Ñ ¾¢8¡Ë¯ˆó1J$ef0d8571-99db-4ec2-914f-d23072a336f8
+csharpsquid:S1066ê"/Merge this if statement with the enclosing one.(‡ôÆ†üÿÿÿÿ8¡Ë¯ˆó1J$cce78a00-5b3e-4270-a0c5-e2e441be731b
+žcsharpsquid:S1450"TRemove the field 'value' and declare it as a local variable in the relevant methods.(ÔÔ½Ø8€ßßÿò1J$bf7d65cc-22bc-43fe-bbeb-755d1d385849
+¤csharpsquid:S1450"ZRemove the field '_comboValue' and declare it as a local variable in the relevant methods.(³ˆµã8€ßßÿò1J$d4ac2d28-68c4-419d-b16e-98be11e9095f
+¤csharpsquid:S1450"ZRemove the field 'higherValue' and declare it as a local variable in the relevant methods.(××¼ñ8€ßßÿò1J$f87f5103-2619-4e56-b088-e61f5b7af10b
+­csharpsquid:S1450"^Remove the field 'conversionValue' and declare it as a local variable in the relevant methods.(¬‰Ÿ×úÿÿÿÿ8üÛ”€ó1J$949f62a4-5218-4c9e-a1c8-9d3462e24e24
+fcsharpsquid:S3626²"Remove this redundant jump.(ÉŠ©ƒ8à¼ù‹ó1J$f65874c6-41b0-498a-841c-24c66023b38f
+mcsharpsquid:S125P"Remove this commented out code.(Ù„”‡ýÿÿÿÿ8üÛ”€ó1J$d38fbc18-c20f-447e-b6f3-d81c4be1bf69
+gcsharpsquid:S125X"Remove this commented out code.(°”f8®£‡ó1J$595f7c9e-d291-4808-80ac-ef470c034a25

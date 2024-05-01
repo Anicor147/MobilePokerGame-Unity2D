@@ -1,18 +1,18 @@
 
-–csharpsquid:S3244Ş"FUnsubscribe with the same delegate that was used for the subscription.(áÕœóşÿÿÿÿ8Ø“Ğ‘ò1J$24b6130b-122d-43bc-8bcd-491d3e44cd48
-csharpsquid:S3776İ"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(šœÏÕ8½èğ‘ò1J$cfb4284e-7a6b-417b-953f-3db8970c905f
-tcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõ8Ø“Ğ‘ò1J$5689d18c-47c8-48c8-898d-b31c1d82fd52
-mcsharpsquid:S29332"Make '_checkJoker' 'readonly'.(Æ©Ğ×ùÿÿÿÿ8Ø“Ğ‘ò1J$7ef9c859-a409-453d-8d13-e23da25bd2e2
-“csharpsquid:S1104!"DMake this field 'private' and encapsulate it in a 'public' property.(ğó™œùÿÿÿÿ8Ú“Ğ‘ò1J$1a39cc46-f8ab-4088-ad37-f5d9b2620fb5
-csharpsquid:S1104""DMake this field 'private' and encapsulate it in a 'public' property.(î¯•8Ú“Ğ‘ò1J$39b8bf2c-4bc0-4fc0-b9e1-5184fa08fa64
-“csharpsquid:S22924"DMake this an auto-implemented property and remove its backing field.(Ò’ßªÿÿÿÿÿ8Ú“Ğ‘ò1J$571f9cf7-cee9-4570-9635-6ec08f3d3be9
-“csharpsquid:S2292:"DMake this an auto-implemented property and remove its backing field.(¢¿Üşÿÿÿÿ8Ú“Ğ‘ò1J$5a46cd08-c61a-4e42-8c34-a6d56abe4f0a
-”csharpsquid:S2223!"EChange the visibility of 'Instance' or make it 'const' or 'readonly'.(ğó™œùÿÿÿÿ8Ú“Ğ‘ò1J$12a409a2-a196-43c9-a818-c348ebc6d8c2
-“csharpsquid:S2223""IChange the visibility of 'IncreaseGold' or make it 'const' or 'readonly'.(î¯•8Ú“Ğ‘ò1J$90efc383-5c6a-456a-af31-da6d021d366f
-Ÿcsharpsquid:S2696G"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(Ä“±Ï8Ú“Ğ‘ò1J$949550ba-6067-4c5a-a14f-abf1f7feae99
-¤csharpsquid:S2696r"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(©ÀÇØúÿÿÿÿ8Ú“Ğ‘ò1J$26518c51-4a11-4d6c-b91f-1504611749ba
-Ÿcsharpsquid:S2696s"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¹§ô8Ú“Ğ‘ò1J$244d3be6-7c60-444d-a0c1-b450629cebf3
-¤csharpsquid:S2696u"UMake the enclosing instance method 'static' or remove this set on the 'static' field.( ²Ö„ûÿÿÿÿ8Ú“Ğ‘ò1J$486c525c-6d15-4e4b-bed3-f90b5d48d473
-mcsharpsquid:S125b"Remove this commented out code.(º«¥áûÿÿÿÿ8Û“Ğ‘ò1J$ee7a0382-9996-48ca-b7a4-c4a6440a81e5
-hcsharpsquid:S125{"Remove this commented out code.(İ¢Şà8Û“Ğ‘ò1J$74493251-b67f-47cf-a95f-640fcc02298b
-ncsharpsquid:S125Í"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8Û“Ğ‘ò1J$f850e4a6-54c7-4104-8ef9-963903a04d0b
+–csharpsquid:S3244è"FUnsubscribe with the same delegate that was used for the subscription.(áÕœóşÿÿÿÿ8Ø“Ğ‘ò1J$bcdec1b8-f7ee-4594-bc36-cb0a7d089ac3
+csharpsquid:S3776İ"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(šœÏÕ8½èğ‘ò1J$cbffbc0e-4350-43a0-9e9e-46b155b218bc
+tcsharpsquid:S3903"*Move 'GameManager' into a named namespace.(¬øõ8Ø“Ğ‘ò1J$cf3759d9-443b-4169-afa2-9e105bd785d0
+mcsharpsquid:S29332"Make '_checkJoker' 'readonly'.(Æ©Ğ×ùÿÿÿÿ8Ø“Ğ‘ò1J$93318be9-9ad9-4fef-b5a7-e40f8e3541b5
+“csharpsquid:S1104!"DMake this field 'private' and encapsulate it in a 'public' property.(ğó™œùÿÿÿÿ8Ú“Ğ‘ò1J$97219416-6015-4474-853e-aa9fbbba3b3b
+csharpsquid:S1104""DMake this field 'private' and encapsulate it in a 'public' property.(î¯•8Ú“Ğ‘ò1J$69dbc432-d90a-48cc-be8a-84665bf8c966
+“csharpsquid:S22924"DMake this an auto-implemented property and remove its backing field.(Ò’ßªÿÿÿÿÿ8Ú“Ğ‘ò1J$9fa89cd6-ff38-4715-a8c5-64e447ff86e5
+“csharpsquid:S2292:"DMake this an auto-implemented property and remove its backing field.(¢¿Üşÿÿÿÿ8Ú“Ğ‘ò1J$31259349-54fc-41a9-9870-aca84ada8924
+”csharpsquid:S2223!"EChange the visibility of 'Instance' or make it 'const' or 'readonly'.(ğó™œùÿÿÿÿ8Ú“Ğ‘ò1J$4bd419c0-13cd-40d0-886e-094eaec910ba
+“csharpsquid:S2223""IChange the visibility of 'IncreaseGold' or make it 'const' or 'readonly'.(î¯•8Ú“Ğ‘ò1J$ff813e91-c8d5-480a-abfb-e2aa6c477256
+Ÿcsharpsquid:S2696G"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(Ä“±Ï8Ú“Ğ‘ò1J$177bd528-cd60-4940-ba2e-f39b2f723f89
+¤csharpsquid:S2696r"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(©ÀÇØúÿÿÿÿ8Ú“Ğ‘ò1J$7e0369d9-730e-4c10-8058-b292551437bd
+Ÿcsharpsquid:S2696s"UMake the enclosing instance method 'static' or remove this set on the 'static' field.(¹§ô8Ú“Ğ‘ò1J$97a1ecdd-572f-431d-8440-7d97e390eedb
+¤csharpsquid:S2696u"UMake the enclosing instance method 'static' or remove this set on the 'static' field.( ²Ö„ûÿÿÿÿ8Ú“Ğ‘ò1J$ce012ae1-d4d1-47c8-9ba5-d86bfc794971
+mcsharpsquid:S125b"Remove this commented out code.(º«¥áûÿÿÿÿ8Û“Ğ‘ò1J$76d51983-65b2-436a-bd82-2efd813291f2
+hcsharpsquid:S125{"Remove this commented out code.(İ¢Şà8Û“Ğ‘ò1J$f480f601-3003-4bca-99b1-d24ecb9d24ea
+ncsharpsquid:S125Í"Remove this commented out code.(Ú¢×ôúÿÿÿÿ8Û“Ğ‘ò1J$d895d43e-c8f8-40f7-9bad-20e78d733da0

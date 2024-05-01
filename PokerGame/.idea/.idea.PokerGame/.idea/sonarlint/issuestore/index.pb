@@ -31,5 +31,5 @@ S
 #Assets/Scripts/SOScripts/AudioSO.cs,c\5\c5864502e4ce0f6797bf343a48e920c193c86ef6
 Q
 !Assets/Scripts/Manager/Options.cs,1\8\187e75fe5f2bc4d7354a7063c79b534dfc052fee
-[
-+Assets/StatisticsScripts/StatsCalculator.cs,c\5\c5e836e636766b60b4a3ee8138bdc907542465a3
+c
+3Assets/Scripts/StatisticsScripts/StatsCalculator.cs,6\d\6d0f8007e07cfdffbb647e6a349f7d86a1b19ff1

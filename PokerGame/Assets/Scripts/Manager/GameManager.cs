@@ -386,10 +386,12 @@ public class GameManager : MonoBehaviour
 
     private bool IsFullHouse(ref List<CarteData> handData)
     {
-        return (handData[0].valeur == handData[1].valeur && handData[2].valeur == handData[3].valeur &&
+        return (handData[0].valeur == handData[1].valeur &&
+                handData[0].valeur == handData[2].valeur &&
                 handData[3].valeur == handData[4].valeur) ||
-               (handData[0].valeur == handData[1].valeur && handData[1].valeur == handData[2].valeur &&
-                handData[3].valeur == handData[4].valeur);
+               (handData[0].valeur == handData[1].valeur &&
+                handData[2].valeur == handData[3].valeur &&
+                handData[2].valeur == handData[4].valeur);
     }
 
     private bool IsFourOfAKind(ref List<CarteData> handData)
@@ -402,7 +404,11 @@ public class GameManager : MonoBehaviour
 
     private bool IsRoyalFlush(ref List<CarteData> handData)
     {
-        return IsStraightFlush(ref handData) && handData[0].valeur == 10;
+        return (handData[0].valeur == 0 && handData[1].valeur == 10 && handData[2].valeur == 11 &&
+                handData[3].valeur == 12 && handData[4].valeur == 13
+                &&
+                handData[0].color == handData[1].color && handData[1].color == handData[2].color &&
+                handData[2].color == handData[3].color && handData[3].color == handData[4].color);
     }
 
     private bool IsFlush(ref List<CarteData> handData)
@@ -421,25 +427,28 @@ public class GameManager : MonoBehaviour
 
     private bool IsStraightFlush(ref List<CarteData> handData)
     {
-        return IsStraight(ref handData) && IsColor(ref handData);
+        return handData[0].valeur == handData[1].valeur - 1 &&
+               handData[0].valeur == handData[2].valeur - 2 &&
+               handData[0].valeur == handData[3].valeur - 3 &&
+               handData[0].valeur == handData[4].valeur - 4 &&
+               handData[0].enseigne == handData[1].enseigne &&
+               handData[0].enseigne == handData[2].enseigne &&
+               handData[0].enseigne == handData[3].enseigne &&
+               handData[0].enseigne == handData[4].enseigne;
     }
 
     private bool IsStraight(ref List<CarteData> handData)
     {
-        for (int i = 1; i < handData.Count; i++)
-        {
-            if (handData[i].valeur != handData[i - 1].valeur + 1)
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return handData[0].valeur == handData[1].valeur - 1 &&
+               handData[0].valeur == handData[2].valeur - 2 &&
+               handData[0].valeur == handData[3].valeur - 3 &&
+               handData[0].valeur == handData[4].valeur - 4;
     }
 
     private bool IsThreeOfAKind(ref List<CarteData> handData)
     {
         return (handData[0].valeur == handData[1].valeur && handData[1].valeur == handData[2].valeur) ||
+               (handData[2].valeur == handData[3].valeur && handData[3].valeur == handData[4].valeur) ||
                (handData[1].valeur == handData[2].valeur && handData[2].valeur == handData[3].valeur);
     }
 
@@ -460,15 +469,16 @@ public class GameManager : MonoBehaviour
 
     private bool IsOnePair(ref List<CarteData> handData)
     {
+        int pairCount = 0;
         for (int i = 0; i < handData.Count - 1; i++)
         {
             if (handData[i].valeur == handData[i + 1].valeur)
             {
-                return true;
+                pairCount++;
             }
         }
 
-        return false;
+        return pairCount == 1;
     }
 
     #endregion
